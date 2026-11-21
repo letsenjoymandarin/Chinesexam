@@ -1,0 +1,3424 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="artifact-type" content="tool">
+  <meta name="design-style" content="charter">
+  <title>AP Chinese Language and Culture — Practice Examination</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+
+      /* Page and surfaces (Charter) */
+      --background: #f7f4ec;
+      --surface-container-low: #fffdf8;
+      --surface-container: #ece5d4;
+      --surface-container-high: #e3dac4;
+
+      /* Ink */
+      --on-surface: #1c1f26;
+      --on-surface-variant: #4f5360;
+
+      /* Rules */
+      --outline: #b08d57;
+      --outline-variant: #d9cfb8;
+
+      /* Accents */
+      --primary: #14213d;
+      --on-primary: #f7f4ec;
+      --primary-container: #e3e6ee;
+      --on-primary-container: #14213d;
+      --secondary: #2d5a4a;
+      --tertiary: #8a6a35;
+      --error: #9b2c2c;
+      --on-error: #f7f4ec;
+
+      /* Data series */
+      --data-1: #14213d;
+      --data-2: #8a6a35;
+      --data-3: #2d5a4a;
+      --data-4: #5b7aa0;
+      --data-context: #c2bba9;
+
+      /* Semantic */
+      --positive: #2d5a4a;
+      --warning: #8a6a35;
+      --focus: #14213d;
+
+      /* Fonts */
+      --font-headline: 'Libre Caslon Text', 'Noto Sans TC', 'Noto Sans SC', serif;
+      --font-body: 'Inter', 'Noto Sans TC', 'Noto Sans SC', sans-serif;
+      --font-cjk: 'Noto Sans TC', 'Noto Sans SC', 'Inter', sans-serif;
+      --font-label: 'Inter', sans-serif;
+      --font-mono: 'IBM Plex Mono', monospace;
+
+      /* Type scale (Focused Tool) */
+      --display-size: clamp(1.5rem, 1.2rem + 1.1vw, 2.125rem);
+      --headline-size: clamp(1.2rem, 1.05rem + 0.45vw, 1.45rem);
+      --subhead-size: clamp(1.0625rem, 1rem + 0.25vw, 1.1875rem);
+      --body-size: clamp(0.9375rem, 0.9rem + 0.15vw, 1rem);
+      --label-size: 0.75rem;
+
+      /* Shape (Charter squared corners) */
+      --rounded: 0.125rem;
+      --rounded-lg: 0.125rem;
+      --rounded-full: 0.125rem;
+
+      /* Style effects */
+      --brass-rule: 2px solid var(--outline);
+      --hairline: 1px solid var(--outline-variant);
+      --navy-rule: 2px solid var(--primary);
+      --leaf-underline: 0 1px 0 var(--outline-variant);
+      --teacher-stripe: 3px solid var(--tertiary);
+
+      /* Spacing scale (4pt base) */
+      --space-xs: 0.25rem;
+      --space-sm: 0.5rem;
+      --space-md: 1rem;
+      --space-lg: 1.5rem;
+      --space-xl: 2.5rem;
+      --space-2xl: 4rem;
+
+      /* Motion */
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+      --dur-micro: 120ms;
+      --dur-short: 220ms;
+    }
+
+    /* Base reset */
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body {
+      overflow-x: clip;
+      margin: 0;
+      padding: 0;
+      background: var(--background);
+      color: var(--on-surface);
+      font-family: var(--font-body);
+      font-size: var(--body-size);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    header { position: static !important; }
+
+    button, input, select, textarea {
+      font-family: inherit;
+      font-size: inherit;
+      color: inherit;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--focus);
+      outline-offset: 2px;
+    }
+
+    .is-hidden { display: none !important; }
+    .tabular { font-variant-numeric: tabular-nums lining-nums; }
+
+    /* Header / Navy Title Band (Charter #1) */
+    .title-band {
+      background: var(--primary);
+      color: var(--on-primary);
+      border-bottom: 3px solid var(--outline);
+      padding: var(--space-lg) var(--space-lg);
+    }
+    .title-band-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      gap: var(--space-md);
+    }
+    .title-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: var(--space-md);
+      border-bottom: 1px solid color-mix(in srgb, var(--outline) 45%, transparent);
+      padding-bottom: var(--space-md);
+    }
+    .title-kicker {
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: color-mix(in srgb, var(--outline) 78%, var(--on-primary));
+      margin: 0 0 var(--space-xs) 0;
+    }
+    .title-band h1 {
+      font-family: var(--font-headline);
+      font-weight: 400;
+      font-size: var(--display-size);
+      line-height: 1.12;
+      letter-spacing: -0.01em;
+      margin: 0;
+      color: var(--on-primary);
+    }
+    .title-band .lede {
+      font-size: 0.9375rem;
+      margin: var(--space-xs) 0 0 0;
+      color: color-mix(in srgb, var(--on-primary) 80%, var(--primary));
+    }
+
+    /* Header Controls Strip */
+    .header-controls {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-md);
+    }
+    .control-cluster {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-xs);
+      min-height: 44px;
+      padding: var(--space-xs) var(--space-md);
+      border-radius: var(--rounded);
+      border: 1px solid var(--primary);
+      background: transparent;
+      color: var(--primary);
+      font-family: var(--font-label);
+      font-size: 0.875rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      cursor: pointer;
+      transition: background-color var(--dur-micro) var(--ease-out), color var(--dur-micro) var(--ease-out);
+      text-decoration: none;
+    }
+    .btn:hover:not(:disabled) {
+      background: var(--primary-container);
+    }
+    .btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    .btn-primary {
+      background: var(--primary);
+      color: var(--on-primary);
+      border-color: var(--primary);
+    }
+    .btn-primary:hover:not(:disabled) {
+      background: color-mix(in srgb, var(--primary) 85%, var(--on-surface));
+    }
+    .btn-secondary {
+      background: var(--surface-container);
+      color: var(--on-surface);
+      border-color: var(--outline);
+    }
+    .btn-secondary:hover:not(:disabled) {
+      background: var(--surface-container-high);
+    }
+    .btn-danger {
+      border-color: var(--error);
+      color: var(--error);
+      background: transparent;
+    }
+    .btn-danger:hover:not(:disabled) {
+      background: color-mix(in srgb, var(--error) 10%, transparent);
+    }
+    .btn-sm {
+      min-height: 36px;
+      padding: var(--space-xs) var(--space-sm);
+      font-size: 0.8125rem;
+    }
+
+    /* Header-specific dark-ground buttons */
+    .btn-header {
+      border: 1px solid color-mix(in srgb, var(--outline) 70%, var(--on-primary));
+      color: var(--on-primary);
+      background: color-mix(in srgb, var(--on-primary) 8%, transparent);
+      min-height: 40px;
+      padding: var(--space-xs) var(--space-md);
+    }
+    .btn-header:hover:not(:disabled) {
+      background: color-mix(in srgb, var(--on-primary) 16%, transparent);
+    }
+    .btn-header.is-active {
+      background: var(--outline);
+      color: var(--primary);
+      border-color: var(--outline);
+      font-weight: 600;
+    }
+
+    /* Timer Capsule inside Header */
+    .timer-strip {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: var(--space-sm);
+      padding: var(--space-xs) var(--space-sm);
+      border: 1px solid color-mix(in srgb, var(--outline) 65%, transparent);
+      background: color-mix(in srgb, var(--on-primary) 6%, transparent);
+      border-radius: var(--rounded);
+    }
+    .timer-readout-group {
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+      padding: 0 var(--space-xs);
+    }
+    .timer-unit {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+    }
+    .timer-label {
+      font-size: 0.6875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: color-mix(in srgb, var(--outline) 80%, var(--on-primary));
+    }
+    .timer-value {
+      font-family: var(--font-mono);
+      font-size: 1.125rem;
+      font-weight: 600;
+      font-variant-numeric: tabular-nums;
+      color: var(--on-primary);
+    }
+    .timer-unit.is-inactive .timer-value {
+      opacity: 0.55;
+    }
+    .timer-unit.is-low .timer-value {
+      color: color-mix(in srgb, var(--on-error) 85%, var(--outline));
+    }
+
+    /* Main Page Shell */
+    .page-grid {
+      display: grid;
+      gap: var(--space-lg);
+      padding: var(--space-lg);
+      max-width: 1280px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+    .page-grid * { min-width: 0; }
+
+    /* Student Identity + Progress Bar */
+    .exam-meta-bar {
+      background: var(--surface-container-low);
+      border-top: var(--brass-rule);
+      border-bottom: var(--hairline);
+      box-shadow: var(--leaf-underline);
+      padding: var(--space-md) var(--space-lg);
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: var(--space-lg);
+      align-items: end;
+    }
+    .student-fields {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-md);
+      align-items: end;
+    }
+    .field-group {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+    }
+    .field-label {
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--on-surface-variant);
+    }
+    .input-control, .textarea-control, .select-control {
+      width: 100%;
+      min-height: 44px;
+      padding: var(--space-sm) var(--space-md);
+      background: var(--surface-container-low);
+      border: 1px solid var(--outline-variant);
+      border-radius: var(--rounded);
+      color: var(--on-surface);
+      font-size: 0.9375rem;
+      transition: border-color var(--dur-micro) var(--ease-out);
+    }
+    .input-control:focus, .textarea-control:focus, .select-control:focus {
+      border-color: var(--primary);
+    }
+    .textarea-control {
+      min-height: 96px;
+      resize: vertical;
+      line-height: 1.55;
+    }
+
+    .progress-submit-box {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: end;
+      justify-content: space-between;
+      gap: var(--space-md);
+    }
+    .progress-stats {
+      display: flex;
+      gap: var(--space-lg);
+      flex-wrap: wrap;
+    }
+    .stat-block {
+      display: flex;
+      flex-direction: column;
+    }
+    .stat-label {
+      font-size: var(--label-size);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--on-surface-variant);
+      font-weight: 600;
+    }
+    .stat-num {
+      font-family: var(--font-headline);
+      font-size: 1.35rem;
+      font-weight: 400;
+      font-variant-numeric: tabular-nums lining-nums;
+      color: var(--on-surface);
+    }
+
+    /* Active Audio Monitor Strip */
+    .audio-monitor-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-sm);
+      padding: var(--space-sm) var(--space-md);
+      background: var(--primary-container);
+      border-left: 3px solid var(--primary);
+      border-bottom: var(--hairline);
+      color: var(--on-primary-container);
+    }
+    .audio-monitor-info {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+
+    /* Teacher Mode Banner */
+    .teacher-banner {
+      background: var(--surface-container);
+      border-top: var(--teacher-stripe);
+      border-bottom: var(--hairline);
+      padding: var(--space-md) var(--space-lg);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-md);
+    }
+    .teacher-banner-title {
+      font-family: var(--font-headline);
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--on-surface);
+      margin: 0;
+    }
+    .teacher-banner-desc {
+      margin: var(--space-xs) 0 0 0;
+      font-size: 0.875rem;
+      color: var(--on-surface-variant);
+    }
+
+    /* Primary Section Navigation */
+    .section-nav {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-md);
+      border-bottom: var(--brass-rule);
+      padding-bottom: var(--space-sm);
+    }
+    .section-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+    }
+    .section-tab {
+      min-height: 44px;
+      padding: var(--space-sm) var(--space-md);
+      border: 1px solid var(--outline-variant);
+      background: var(--surface-container-low);
+      color: var(--on-surface-variant);
+      font-family: var(--font-label);
+      font-size: 0.875rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      cursor: pointer;
+      border-radius: var(--rounded);
+      transition: background-color var(--dur-micro) var(--ease-out), color var(--dur-micro) var(--ease-out);
+    }
+    .section-tab:hover {
+      background: var(--surface-container);
+      color: var(--on-surface);
+    }
+    .section-tab.is-active {
+      background: var(--primary);
+      color: var(--on-primary);
+      border-color: var(--primary);
+    }
+
+    /* Set Selector Strip */
+    .set-switcher {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      padding: var(--space-sm) 0;
+    }
+    .set-pill {
+      min-height: 44px;
+      padding: var(--space-xs) var(--space-md);
+      background: var(--surface-container-low);
+      border: 1px solid var(--outline-variant);
+      border-radius: var(--rounded);
+      color: var(--on-surface);
+      font-size: 0.875rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-sm);
+      transition: background-color var(--dur-micro) var(--ease-out);
+    }
+    .set-pill:hover {
+      background: var(--surface-container);
+    }
+    .set-pill.is-active {
+      border-color: var(--primary);
+      border-bottom: 3px solid var(--primary);
+      background: var(--primary-container);
+      color: var(--on-primary-container);
+      font-weight: 600;
+    }
+    .set-badge {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      padding: 2px 6px;
+      border: 1px solid var(--outline);
+      color: var(--tertiary);
+      background: var(--surface-container-low);
+    }
+    .set-pill.is-complete .set-badge {
+      border-color: var(--secondary);
+      color: var(--secondary);
+    }
+    .audio-dot {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      background: var(--secondary);
+      border-radius: 50%;
+    }
+    .audio-dot.is-empty {
+      background: var(--data-context);
+    }
+
+    /* Two-column Workspace inside each Set */
+    .set-workspace {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+      gap: var(--space-lg);
+      align-items: start;
+    }
+
+    /* Charter Figure Card */
+    .charter-card {
+      background: var(--surface-container-low);
+      border-top: var(--brass-rule);
+      box-shadow: var(--leaf-underline);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-lg);
+      display: grid;
+      gap: var(--space-md);
+    }
+    .card-head {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-sm);
+      border-bottom: var(--hairline);
+      padding-bottom: var(--space-sm);
+    }
+    .card-kicker {
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--tertiary);
+      margin: 0;
+    }
+    .card-title {
+      font-family: var(--font-headline);
+      font-weight: 400;
+      font-size: var(--headline-size);
+      margin: var(--space-xs) 0 0 0;
+      color: var(--on-surface);
+    }
+    .tag-stamp {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      padding: 3px 8px;
+      border: 1px solid var(--outline);
+      color: var(--tertiary);
+      background: transparent;
+      border-radius: var(--rounded);
+    }
+    .tag-stamp.is-ready {
+      border-color: var(--secondary);
+      color: var(--secondary);
+    }
+
+    /* Audio Module */
+    .audio-deck {
+      background: var(--surface-container);
+      border: var(--hairline);
+      padding: var(--space-md);
+      display: grid;
+      gap: var(--space-sm);
+    }
+    .audio-deck audio {
+      width: 100%;
+      height: 44px;
+    }
+    .audio-instruction {
+      font-size: 0.875rem;
+      color: var(--on-surface-variant);
+      margin: 0;
+    }
+
+    /* Reading Passage */
+    .passage-box {
+      font-family: var(--font-cjk);
+      font-size: 1.0625rem;
+      line-height: 1.85;
+      color: var(--on-surface);
+      white-space: pre-wrap;
+      max-width: 65ch;
+      padding: var(--space-md) 0;
+      border-bottom: var(--hairline);
+    }
+
+    /* Chart / Image Container */
+    .media-frame {
+      border: var(--hairline);
+      background: var(--background);
+      padding: var(--space-sm);
+      display: grid;
+      gap: var(--space-sm);
+    }
+    .media-frame img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      cursor: zoom-in;
+    }
+    .media-placeholder {
+      padding: var(--space-md);
+      border: 1px dashed var(--outline);
+      background: var(--background);
+      font-size: 0.875rem;
+      color: var(--on-surface-variant);
+    }
+
+    /* Teacher Inline Tools Box */
+    .teacher-panel {
+      background: var(--surface-container);
+      border-left: var(--teacher-stripe);
+      border-top: var(--hairline);
+      border-right: var(--hairline);
+      border-bottom: var(--hairline);
+      padding: var(--space-md);
+      display: grid;
+      gap: var(--space-md);
+    }
+    .teacher-panel-heading {
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--tertiary);
+      margin: 0;
+    }
+    .upload-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: end;
+      gap: var(--space-sm);
+    }
+    .upload-row .field-group {
+      flex: 1 1 220px;
+    }
+    .file-input-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      border: 0;
+    }
+
+    /* Questions Column */
+    .questions-stack {
+      display: grid;
+      gap: var(--space-md);
+    }
+    .question-card {
+      background: var(--surface-container-low);
+      border-top: var(--brass-rule);
+      box-shadow: var(--leaf-underline);
+      padding: var(--space-md) var(--space-lg);
+      display: grid;
+      gap: var(--space-sm);
+    }
+    .question-prompt {
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--on-surface);
+      margin: 0;
+      line-height: 1.5;
+    }
+    .options-list {
+      display: grid;
+      gap: var(--space-xs);
+      margin-top: var(--space-xs);
+    }
+    .option-item {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-sm);
+      min-height: 44px;
+      padding: var(--space-sm) var(--space-md);
+      border: 1px solid var(--outline-variant);
+      background: var(--background);
+      border-radius: var(--rounded);
+      cursor: pointer;
+      transition: background-color var(--dur-micro) var(--ease-out), border-color var(--dur-micro) var(--ease-out);
+    }
+    .option-item:hover {
+      background: var(--surface-container);
+    }
+    .option-item.is-selected {
+      background: var(--primary-container);
+      border-color: var(--primary);
+      box-shadow: inset 3px 0 0 var(--primary);
+    }
+    .option-item input[type="radio"] {
+      margin-top: 4px;
+      width: 16px;
+      height: 16px;
+      accent-color: var(--primary);
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+    .option-text {
+      font-size: 0.9375rem;
+      line-height: 1.45;
+      color: var(--on-surface);
+    }
+
+    .set-footer-nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-md);
+      padding-top: var(--space-md);
+      border-top: var(--hairline);
+    }
+
+    /* Inline Message Banner */
+    .inline-notice {
+      padding: var(--space-sm) var(--space-md);
+      border-left: 3px solid var(--primary);
+      background: var(--primary-container);
+      color: var(--on-primary-container);
+      font-size: 0.875rem;
+    }
+    .inline-notice.is-warning {
+      border-left-color: var(--warning);
+      background: var(--surface-container);
+      color: var(--on-surface);
+    }
+    .inline-notice.is-success {
+      border-left-color: var(--positive);
+      background: var(--surface-container-low);
+      color: var(--secondary);
+      border-top: var(--hairline);
+      border-right: var(--hairline);
+      border-bottom: var(--hairline);
+    }
+    .inline-notice.is-error {
+      border-left-color: var(--error);
+      background: var(--surface-container-low);
+      color: var(--error);
+      border-top: var(--hairline);
+      border-right: var(--hairline);
+      border-bottom: var(--hairline);
+    }
+
+    /* Tables (Charter natural habitat) */
+    .charter-table-wrap {
+      overflow-x: auto;
+      border-top: var(--brass-rule);
+      border-bottom: var(--brass-rule);
+    }
+    .charter-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.875rem;
+    }
+    .charter-table th {
+      background: var(--surface-container-high);
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--on-surface-variant);
+      text-align: left;
+      padding: var(--space-sm) var(--space-md);
+      border-bottom: var(--hairline);
+    }
+    .charter-table td {
+      padding: var(--space-sm) var(--space-md);
+      border-bottom: var(--hairline);
+      color: var(--on-surface);
+      vertical-align: top;
+    }
+    .charter-table td.num {
+      font-family: var(--font-mono);
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* Summary Cards Row */
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
+      gap: var(--space-md);
+    }
+    .figure-card {
+      background: var(--surface-container-low);
+      border-top: var(--brass-rule);
+      box-shadow: var(--leaf-underline);
+      padding: var(--space-md) var(--space-lg);
+    }
+    .figure-label {
+      font-size: var(--label-size);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--on-surface-variant);
+      font-weight: 600;
+    }
+    .figure-value {
+      font-family: var(--font-headline);
+      font-weight: 400;
+      font-size: 1.75rem;
+      font-variant-numeric: tabular-nums lining-nums;
+      color: var(--on-surface);
+      margin-top: var(--space-xs);
+    }
+    .figure-delta {
+      font-size: 0.8125rem;
+      color: var(--tertiary);
+      font-weight: 600;
+      margin-top: var(--space-xs);
+    }
+
+    /* Image Lightbox Overlay */
+    .lightbox-overlay {
+      position: fixed;
+      inset: 0;
+      background: color-mix(in srgb, var(--primary) 88%, transparent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: var(--space-lg);
+      z-index: 1000;
+    }
+    .lightbox-content {
+      background: var(--surface-container-low);
+      border: 2px solid var(--outline);
+      padding: var(--space-md);
+      max-width: min(960px, 100%);
+      max-height: 90vh;
+      overflow: auto;
+      display: grid;
+      gap: var(--space-sm);
+    }
+    .lightbox-content img {
+      max-width: 100%;
+      max-height: 75vh;
+      height: auto;
+      display: block;
+    }
+
+    @media (max-width: 960px) {
+      .exam-meta-bar {
+        grid-template-columns: 1fr;
+      }
+      .set-workspace {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page-grid {
+        grid-template-columns: 1fr;
+        padding: var(--space-md);
+      }
+      .student-fields {
+        grid-template-columns: 1fr;
+      }
+      .title-band {
+        padding: var(--space-md);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="title-band">
+    <div class="title-band-inner">
+      <div class="title-row">
+        <div>
+          <p class="title-kicker">AP Chinese Language and Culture</p>
+          <h1>Practice Examination System</h1>
+          <p class="lede">Section 1: Listening Comprehension (25 Questions) &amp; Section 2: Reading Comprehension (30 Questions)</p>
+        </div>
+        <div class="control-cluster">
+          <button type="button" id="btn-script-toggle" class="btn btn-header" onclick="toggleScriptMode()">
+            Traditional (繁體) / Simplified (简体): 繁體
+          </button>
+          <button type="button" id="btn-teacher-toggle" class="btn btn-header" onclick="toggleTeacherMode()">
+            Teacher Mode: Off
+          </button>
+        </div>
+      </div>
+
+      <div class="header-controls">
+        <div class="timer-strip" aria-label="Exam Timers">
+          <button type="button" id="btn-timer-enable" class="btn btn-header is-active" onclick="toggleTimersEnabled()">
+            Timer: ON
+          </button>
+          <div class="timer-readout-group" id="timer-readout-group">
+            <div class="timer-unit" id="timer-unit-listening">
+              <span class="timer-label">Listening Time Remaining</span>
+              <span class="timer-value tabular" id="timer-display-listening">25:00</span>
+            </div>
+            <div class="timer-unit is-inactive" id="timer-unit-reading">
+              <span class="timer-label">Reading Time Remaining</span>
+              <span class="timer-value tabular" id="timer-display-reading">40:00</span>
+            </div>
+          </div>
+          <button type="button" id="btn-timer-pause" class="btn btn-header" onclick="toggleTimerPause()">
+            Pause Timer
+          </button>
+          <button type="button" id="btn-timer-reset" class="btn btn-header" onclick="resetActiveTimer(this)">
+            Reset Section Timer
+          </button>
+        </div>
+
+        <div class="control-cluster">
+          <button type="button" id="btn-reset-exam" class="btn btn-header" onclick="resetStudentResponses(this)">
+            Clear All Answers
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-grid">
+    <!-- Persistent Audio Playback Status (never interrupts audio) -->
+    <div id="audio-monitor-bar" class="audio-monitor-bar is-hidden" role="status" aria-live="polite">
+      <div class="audio-monitor-info">
+        <span id="audio-monitor-text">Now Playing: Set 1</span>
+      </div>
+      <div class="control-cluster">
+        <button type="button" class="btn btn-sm" onclick="jumpToPlayingAudioSet()">Go to Set</button>
+        <button type="button" class="btn btn-sm" onclick="pauseCurrentlyPlayingAudio()">Pause Audio</button>
+      </div>
+    </div>
+
+    <!-- Teacher Mode Banner (Hidden unless Teacher Mode is active) -->
+    <section id="teacher-banner" class="teacher-banner is-hidden" aria-label="Teacher Mode Controls">
+      <div>
+        <h2 class="teacher-banner-title">Teacher Mode Active</h2>
+        <p class="teacher-banner-desc">
+          Upload independent audio files or stream URLs for Set 1–Set 5, attach charts/images per set, edit passages/questions/options inline, view listening transcripts, and inspect student responses.
+        </p>
+      </div>
+      <div class="control-cluster">
+        <button type="button" class="btn btn-secondary btn-sm" onclick="switchView('teacher-responses')">
+          Inspect Student Responses
+        </button>
+        <button type="button" class="btn btn-danger btn-sm" onclick="resetTeacherEdits(this)">
+          Restore Original Exam Text
+        </button>
+      </div>
+    </section>
+
+    <!-- Student Identity & Submit Bar -->
+    <section class="exam-meta-bar" aria-label="Student Identification and Exam Progress">
+      <div class="student-fields">
+        <div class="field-group">
+          <label class="field-label" for="student-name-input">Student Name</label>
+          <input type="text" id="student-name-input" class="input-control" oninput="updateStudentInfo()" autocomplete="name">
+        </div>
+        <div class="field-group">
+          <label class="field-label" for="student-id-input">Student ID / Class</label>
+          <input type="text" id="student-id-input" class="input-control" oninput="updateStudentInfo()">
+        </div>
+      </div>
+
+      <div class="progress-submit-box">
+        <div class="progress-stats">
+          <div class="stat-block">
+            <span class="stat-label">Listening</span>
+            <span class="stat-num" id="stat-listening-count">0 / 25</span>
+          </div>
+          <div class="stat-block">
+            <span class="stat-label">Reading</span>
+            <span class="stat-num" id="stat-reading-count">0 / 30</span>
+          </div>
+          <div class="stat-block">
+            <span class="stat-label">Total Answered</span>
+            <span class="stat-num" id="stat-total-count">0 / 55</span>
+          </div>
+        </div>
+        <button type="button" id="btn-submit-exam" class="btn btn-primary" onclick="handleSubmitExam(this)">
+          Submit Exam
+        </button>
+      </div>
+    </section>
+
+    <div id="submit-inline-feedback" class="inline-notice is-hidden" role="status"></div>
+
+    <!-- Primary Section Tabs -->
+    <nav class="section-nav" aria-label="Exam Sections">
+      <div class="section-tabs">
+        <button type="button" id="tab-listening" class="section-tab is-active" onclick="switchView('listening')">
+          Section 1: Listening Comprehension
+        </button>
+        <button type="button" id="tab-reading" class="section-tab" onclick="switchView('reading')">
+          Section 2: Reading Comprehension
+        </button>
+        <button type="button" id="tab-summary" class="section-tab is-hidden" onclick="switchView('summary')">
+          Submission Summary
+        </button>
+        <button type="button" id="tab-teacher-responses" class="section-tab is-hidden" onclick="switchView('teacher-responses')">
+          Teacher: Student Responses
+        </button>
+      </div>
+      <span class="tag-stamp" id="active-script-badge">Script: Traditional (繁體)</span>
+    </nav>
+
+    <!-- ========================================================== -->
+    <!-- SECTION 1: LISTENING COMPREHENSION (5 Sets, 25 Questions)  -->
+    <!-- ========================================================== -->
+    <section id="view-listening" aria-label="Section 1: Listening Comprehension">
+      <div class="set-switcher" id="listening-set-switcher" role="tablist" aria-label="Listening Sets">
+        <button type="button" id="l-pill-1" class="set-pill is-active" onclick="selectListeningSet(1)">
+          <span class="audio-dot is-empty" id="l-audio-dot-1" aria-hidden="true"></span>
+          <span>Set 1</span>
+          <span class="set-badge" id="l-badge-1">0/5</span>
+        </button>
+        <button type="button" id="l-pill-2" class="set-pill" onclick="selectListeningSet(2)">
+          <span class="audio-dot is-empty" id="l-audio-dot-2" aria-hidden="true"></span>
+          <span>Set 2</span>
+          <span class="set-badge" id="l-badge-2">0/5</span>
+        </button>
+        <button type="button" id="l-pill-3" class="set-pill" onclick="selectListeningSet(3)">
+          <span class="audio-dot is-empty" id="l-audio-dot-3" aria-hidden="true"></span>
+          <span>Set 3</span>
+          <span class="set-badge" id="l-badge-3">0/5</span>
+        </button>
+        <button type="button" id="l-pill-4" class="set-pill" onclick="selectListeningSet(4)">
+          <span class="audio-dot is-empty" id="l-audio-dot-4" aria-hidden="true"></span>
+          <span>Set 4</span>
+          <span class="set-badge" id="l-badge-4">0/5</span>
+        </button>
+        <button type="button" id="l-pill-5" class="set-pill" onclick="selectListeningSet(5)">
+          <span class="audio-dot is-empty" id="l-audio-dot-5" aria-hidden="true"></span>
+          <span>Set 5</span>
+          <span class="set-badge" id="l-badge-5">0/5</span>
+        </button>
+      </div>
+
+      <!-- Persistent DOM Panels for Listening Sets 1..5 (Never destroyed on tab switch so audio stays continuous) -->
+      <div id="listening-panels-container"></div>
+    </section>
+
+    <!-- ========================================================== -->
+    <!-- SECTION 2: READING COMPREHENSION (6 Sets, 30 Questions)    -->
+    <!-- ========================================================== -->
+    <section id="view-reading" class="is-hidden" aria-label="Section 2: Reading Comprehension">
+      <div class="set-switcher" id="reading-set-switcher" role="tablist" aria-label="Reading Sets">
+        <button type="button" id="r-pill-1" class="set-pill is-active" onclick="selectReadingSet(1)">
+          <span>Set 1</span>
+          <span class="set-badge" id="r-badge-1">0/5</span>
+        </button>
+        <button type="button" id="r-pill-2" class="set-pill" onclick="selectReadingSet(2)">
+          <span>Set 2</span>
+          <span class="set-badge" id="r-badge-2">0/5</span>
+        </button>
+        <button type="button" id="r-pill-3" class="set-pill" onclick="selectReadingSet(3)">
+          <span>Set 3</span>
+          <span class="set-badge" id="r-badge-3">0/5</span>
+        </button>
+        <button type="button" id="r-pill-4" class="set-pill" onclick="selectReadingSet(4)">
+          <span>Set 4</span>
+          <span class="set-badge" id="r-badge-4">0/5</span>
+        </button>
+        <button type="button" id="r-pill-5" class="set-pill" onclick="selectReadingSet(5)">
+          <span>Set 5</span>
+          <span class="set-badge" id="r-badge-5">0/5</span>
+        </button>
+        <button type="button" id="r-pill-6" class="set-pill" onclick="selectReadingSet(6)">
+          <span>Set 6</span>
+          <span class="set-badge" id="r-badge-6">0/5</span>
+        </button>
+      </div>
+
+      <div id="reading-panels-container"></div>
+    </section>
+
+    <!-- ========================================================== -->
+    <!-- SUBMISSION SUMMARY VIEW                                    -->
+    <!-- ========================================================== -->
+    <section id="view-summary" class="is-hidden" aria-label="Submission Summary">
+      <div class="charter-card">
+        <div class="card-head">
+          <div>
+            <p class="card-kicker">Exam Submission Confirmed</p>
+            <h2 class="card-title">Student Response Summary &amp; Email Transmission</h2>
+          </div>
+          <button type="button" class="btn btn-secondary btn-sm" onclick="switchView('listening')">
+            Return to Exam
+          </button>
+        </div>
+
+        <div class="inline-notice is-success" id="summary-status-banner">
+          Your responses have been saved locally. No answer key is disclosed during or after this practice exam. Use the report controls below to transmit your responses to letsenjoymandarin@gmail.com.
+        </div>
+
+        <div class="summary-grid" id="summary-metrics-grid"></div>
+
+        <div class="charter-card" style="border-top: var(--navy-rule);">
+          <div class="card-head">
+            <div>
+              <p class="card-kicker">Email Transmission</p>
+              <h3 class="card-title" style="font-size: var(--subhead-size);">Send Report to letsenjoymandarin@gmail.com</h3>
+            </div>
+            <div class="control-cluster">
+              <button type="button" class="btn btn-primary btn-sm" onclick="copyEmailReport()">
+                Copy Full Email Report
+              </button>
+              <a id="mailto-dispatch-link" class="btn btn-secondary btn-sm" href="mailto:letsenjoymandarin@gmail.com">
+                Open Mail Client
+              </a>
+              <button type="button" class="btn btn-secondary btn-sm" onclick="downloadReportTxt()">
+                Download Report (.txt)
+              </button>
+              <button type="button" class="btn btn-secondary btn-sm" onclick="downloadReportCsv()">
+                Download CSV
+              </button>
+            </div>
+          </div>
+
+          <div id="copy-report-feedback" class="inline-notice is-hidden" role="status"></div>
+
+          <div class="field-group">
+            <label class="field-label" for="email-report-preview">Formatted Email Report Preview (Recipient: letsenjoymandarin@gmail.com)</label>
+            <textarea id="email-report-preview" class="textarea-control" rows="12" readonly></textarea>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="card-title" style="font-size: var(--subhead-size); margin-bottom: var(--space-sm);">Recorded Answers</h3>
+          <div class="charter-table-wrap">
+            <table class="charter-table" id="summary-answers-table">
+              <thead>
+                <tr>
+                  <th>Section</th>
+                  <th>Set</th>
+                  <th>Question</th>
+                  <th>Selected Response</th>
+                </tr>
+              </thead>
+              <tbody id="summary-answers-tbody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================== -->
+    <!-- TEACHER RESPONSES INSPECTOR VIEW                           -->
+    <!-- ========================================================== -->
+    <section id="view-teacher-responses" class="is-hidden" aria-label="Teacher Student Response Inspector">
+      <div class="charter-card">
+        <div class="card-head">
+          <div>
+            <p class="card-kicker">Teacher Inspector</p>
+            <h2 class="card-title">Student Responses &amp; Submission History</h2>
+          </div>
+          <div class="control-cluster">
+            <button type="button" class="btn btn-secondary btn-sm" onclick="downloadReportCsv()">
+              Export Current Responses (.csv)
+            </button>
+            <button type="button" class="btn btn-secondary btn-sm" onclick="switchView('listening')">
+              Back to Exam Sets
+            </button>
+          </div>
+        </div>
+
+        <div id="teacher-inspector-content"></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Image Lightbox -->
+  <div id="image-lightbox" class="lightbox-overlay is-hidden" role="dialog" aria-modal="true" aria-label="Enlarged Chart View" onclick="closeLightbox()">
+    <div class="lightbox-content" onclick="event.stopPropagation()">
+      <div class="card-head">
+        <span class="card-kicker" id="lightbox-caption">Chart / Reference Image</span>
+        <button type="button" class="btn btn-secondary btn-sm" onclick="closeLightbox()">Close</button>
+      </div>
+      <img id="lightbox-img" src="" alt="Enlarged set visual">
+    </div>
+  </div>
+
+  <api-shim></api-shim>
+  <script>
+    /* ======================================================================
+       IMMUTABLE BASE EXAM DATASET (Verbatim from AP聽力.docx & ap閱讀題.docx)
+       ====================================================================== */
+    const BASE_LISTENING_SETS = [
+      {
+        setNumber: 1,
+        audioKey: `audio_set_1`,
+        instruction: `Selection 1: Announcement (Selection plays two times.)`,
+        transcriptHant: `各位同學，從明天早上八點到大後天下午四點，十一年級的學生將在大禮堂展示他們歷史課的作品。這次展覽主要是他們這兩個月研究訪談的成果。他們每個人在學期初選定一個跟自己的文化有關的題目，然後找資料、照片寫文章，並設計自己的展板。就我所知，每個學生都下了極大的功夫來完成這個項目。他們也從中學習到了很多。為了方便各位同學觀看和學習，學校決定明天早上開放給家長參觀。明天下午九年級學生，後天十年級，大後天十二年級，家長和各年級學生可以按時前往參觀。`,
+        transcriptHans: `各位同学，从明天早上八点到大后天下午四点，十一年级的学生将在大礼堂展示他们历史课的作品。这次展览主要是他们这两个月研究访谈的成果。他们每个人在学期初选定一个跟自己的文化有关的题目，然后找资料、照片写文章，并设计自己的展板。就我所知，每个学生都下了极大的功夫来完成这个项目。他们也从中学到了很多。为了方便各位同学观看和学习，学校决定明天早上开放给家长参观。明天下午九年级学生，后天十年级，大后天十二年级，家长和各年级学生可以按时前往参观。`,
+        questions: [
+          {
+            id: `L1_Q1`,
+            numLabel: `16.`,
+            prompt: `How long will the exhibit be on?`,
+            options: [
+              { letter: `A`, text: `A) One day` },
+              { letter: `B`, text: `B) Two days` },
+              { letter: `C`, text: `C) Three days` },
+              { letter: `D`, text: `D) Two weeks` }
+            ]
+          },
+          {
+            id: `L1_Q2`,
+            numLabel: `17.`,
+            prompt: `Where will the exhibit be?`,
+            options: [
+              { letter: `A`, text: `A) In the museum` },
+              { letter: `B`, text: `B) In the auditorium` },
+              { letter: `C`, text: `C) In the library` },
+              { letter: `D`, text: `D) In a large classroom` }
+            ]
+          },
+          {
+            id: `L1_Q3`,
+            numLabel: `18.`,
+            prompt: `Which of the following statements is TRUE?`,
+            options: [
+              { letter: `A`, text: `A) The teacher assigned the students topics to work on at the beginning of the semester.` },
+              { letter: `B`, text: `B) The projects that the students worked on were group projects.` },
+              { letter: `C`, text: `C) The students chose topics related to their own culture to work on.` },
+              { letter: `D`, text: `D) The students worked on the exhibit for two weeks.` }
+            ]
+          },
+          {
+            id: `L1_Q4`,
+            numLabel: `19.`,
+            prompt: `Which of the following methods did the students NOT employ?`,
+            options: [
+              { letter: `A`, text: `A) Writing articles` },
+              { letter: `B`, text: `B) Designing the display board` },
+              { letter: `C`, text: `C) Interviewing people` },
+              { letter: `D`, text: `D) Creating a powerpoint presentation` }
+            ]
+          },
+          {
+            id: `L1_Q5`,
+            numLabel: `20.`,
+            prompt: `Which group of people can go to the exhibit tomorrow afternoon?`,
+            options: [
+              { letter: `A`, text: `A) Parents` },
+              { letter: `B`, text: `B) 9th graders` },
+              { letter: `C`, text: `C) 10th graders` },
+              { letter: `D`, text: `D) 12th graders` }
+            ]
+          }
+        ]
+      },
+      {
+        setNumber: 2,
+        audioKey: `audio_set_2`,
+        instruction: `Selection 2: Conversation (Selection plays one time.)`,
+        transcriptHant: `男： 明明，後天晚上的畢業舞會你去嗎？\n女： 去是肯定會去的。可是不知道該穿哪件衣服，這兩天功課忙，又沒有時間去買衣服。\n男： 你上次參加小麗生日舞會時穿的那件連衣裙不是挺好的嗎？很漂亮，非常適合你。\n女： 哪件？\n男： 就是那件藍底帶小白花的。\n女： 那件啊，不行。那件是我姐姐的。我上次跟她借，結果呢，喝咖啡時不小心濺了幾滴在上頭。我姐姐簡直氣炸了，一連三天都沒理我。\n男： 你姐姐脾氣那麼大啊？\n女： 不管她了，你說我該怎麼辦？\n男： 那跟小平借吧。她的衣服多，個子又跟你差不多。你穿肯定合身。\n女： 好主意，我現在就給她打電話。`,
+        transcriptHans: `男： 明明，后天晚上的毕业舞会你去吗？\n女： 去是肯定会去的。可是不知道该穿哪件衣服，这两天功课忙，又没有时间去买衣服。\n男： 你上次参加小丽生日舞会时穿的那件连衣裙不是挺好的吗？很漂亮，非常适合你。\n女： 哪件？\n男： 就是那件蓝底带小白花的。\n女： 那件啊，不行。那件是我姐姐的。我上次跟她借，结果呢，喝咖啡时不小心溅了几滴在上头。我姐姐简直气炸了，一连三天都没理我。\n男： 你姐姐脾气那么大啊？\n女： 不管她了，你说我该怎么办？\n男： 那跟小平借吧。她的衣服多，个子又跟你差不多。你穿肯定合身。\n女： 好主意，我现在就给她打电话。`,
+        questions: [
+          {
+            id: `L2_Q1`,
+            numLabel: `18.`,
+            prompt: `The dance party Mingming is attending is`,
+            options: [
+              { letter: `A`, text: `A) the Homecoming party` },
+              { letter: `B`, text: `B) the senior prom` },
+              { letter: `C`, text: `C) Xiaoli's birthday party` },
+              { letter: `D`, text: `D) a party the man is hosting` }
+            ]
+          },
+          {
+            id: `L2_Q2`,
+            numLabel: `19.`,
+            prompt: `Mingming is concerned about`,
+            options: [
+              { letter: `A`, text: `A) too much homework to do` },
+              { letter: `B`, text: `B) what attire to wear` },
+              { letter: `C`, text: `C) a coffee stain on her dress` },
+              { letter: `D`, text: `D) not having enough money to shop for clothes` }
+            ]
+          },
+          {
+            id: `L2_Q3`,
+            numLabel: `20.`,
+            prompt: `The party is going to be held`,
+            options: [
+              { letter: `A`, text: `A) on Friday` },
+              { letter: `B`, text: `B) on Saturday` },
+              { letter: `C`, text: `C) tomorrow` },
+              { letter: `D`, text: `D) the day after tomorrow` }
+            ]
+          },
+          {
+            id: `L2_Q4`,
+            numLabel: `21.`,
+            prompt: `The dress that Mingming wore to a friend's party last time was`,
+            options: [
+              { letter: `A`, text: `A) white with little blue flowers` },
+              { letter: `B`, text: `B) blue with little white flowers` },
+              { letter: `C`, text: `C) blue with white stripes` },
+              { letter: `D`, text: `D) white with little blue polka dots` }
+            ]
+          },
+          {
+            id: `L2_Q5`,
+            numLabel: `22.`,
+            prompt: `What is Mingming most likely to wear to the dance party?`,
+            options: [
+              { letter: `A`, text: `A) Her sister's dress` },
+              { letter: `B`, text: `B) One of her own dresses` },
+              { letter: `C`, text: `C) Her friend's dress` },
+              { letter: `D`, text: `D) A brand new dress` }
+            ]
+          }
+        ]
+      },
+      {
+        setNumber: 3,
+        audioKey: `audio_set_3`,
+        instruction: `Selection 3 (Refer to the audio and the chart if attached.)`,
+        needsChartNote: true,
+        transcriptHant: `下個月市文化中心將舉辦家庭電影節，放映四部動畫片。陳老師希望學生通過觀看電影了解不同文化如何表現勇氣、責任與成長。電影節還將舉辦海報展，介紹四部電影的創作背景和導演情況。各部電影的放映時間和預訂人數請見表格。週日下午的電影放映結束後，陳老師將帶領觀眾進行討論。預訂人數最多的電影將在電影節結束後的第二個週六晚上加映一場。購票時請出示學生證，即可享受半價優惠。`,
+        transcriptHans: `下个月市文化中心将举办家庭电影节，放映四部动画片。陈老师希望学生通过观看电影了解不同文化如何表现勇气、责任与成长。电影节还将举办海报展，介绍四部电影的创作背景和导演情况。各部电影的放映时间和预订人数请见表格。周日下午的电影放映结束后，陈老师将带领观众进行讨论。预订人数最多的电影将在电影节结束后的第二个周六晚上加映一场。购票时请出示学生证，即可享受半价优惠。`,
+        questions: [
+          {
+            id: `L3_Q1`,
+            numLabel: `36.`,
+            prompt: `According to the audio, what does Chen hope students will learn through the movies?`,
+            options: [
+              { letter: `A`, text: `A) How cultures portray courage, responsibility, and growth` },
+              { letter: `B`, text: `B) How animated movies are produced` },
+              { letter: `C`, text: `C) How directors choose their actors` },
+              { letter: `D`, text: `D) How cultural centers plan events` }
+            ]
+          },
+          {
+            id: `L3_Q2`,
+            numLabel: `37.`,
+            prompt: `What will the poster exhibition introduce?`,
+            options: [
+              { letter: `A`, text: `A) Ticket prices and discounts` },
+              { letter: `B`, text: `B) The movies’ backgrounds and directors` },
+              { letter: `C`, text: `C) Students’ movie reviews` },
+              { letter: `D`, text: `D) Weekend discussion topics` }
+            ]
+          },
+          {
+            id: `L3_Q3`,
+            numLabel: `38.`,
+            prompt: `According to the audio, how can students receive a discount?`,
+            options: [
+              { letter: `A`, text: `A) By arriving early` },
+              { letter: `B`, text: `B) By buying two tickets` },
+              { letter: `C`, text: `C) By showing a student ID` },
+              { letter: `D`, text: `D) By joining the discussion` }
+            ]
+          },
+          {
+            id: `L3_Q4`,
+            numLabel: `39.`,
+            prompt: `According to the audio and the chart, which movie will be shown again on the second Saturday after the festival?`,
+            options: [
+              { letter: `A`, text: `A) Mulan` },
+              { letter: `B`, text: `B) Journey to the West` },
+              { letter: `C`, text: `C) The Lion King` },
+              { letter: `D`, text: `D) Kung Fu Panda` }
+            ]
+          },
+          {
+            id: `L3_Q5`,
+            numLabel: `40.`,
+            prompt: `According to the audio and the chart, after which movie will Chen lead a discussion?`,
+            options: [
+              { letter: `A`, text: `A) Mulan` },
+              { letter: `B`, text: `B) Journey to the West` },
+              { letter: `C`, text: `C) The Lion King` },
+              { letter: `D`, text: `D) Kung Fu Panda` }
+            ]
+          }
+        ]
+      },
+      {
+        setNumber: 4,
+        audioKey: `audio_set_4`,
+        instruction: `Selection 5: Report (Selection plays one time.)`,
+        transcriptHant: `上海氣象台於二零二零年七月十二日公布，十八時零分發布雷電黃色預警信號，預計一到三小時內，本市自西向東會有雷電活動，可能造成雷電災害事故，政府及相關部門會按照規定做好防雷準備工作，市民應密切注意天氣，盡量避免戶外活動，如有事故發生，請撥打一二零或九九九求助。`,
+        transcriptHans: `上海气象台于二零二零年七月十二日公布，十八时零分发布雷电黄色预警信号，预计一到三小时内，本市自西向东会有雷电活动，可能造成雷电灾害事故，政府及相关部门会按照规定做好防雷准备工作，市民应密切注意天气，尽量避免户外活动，如有事故发生，请拨打一二零或九九九求助。`,
+        questions: [
+          {
+            id: `L4_Q1`,
+            numLabel: `31.`,
+            prompt: `Which city is the weather report for?`,
+            options: [
+              { letter: `A`, text: `A) Beijing` },
+              { letter: `B`, text: `B) Hangzhou` },
+              { letter: `C`, text: `C) Xi'an` },
+              { letter: `D`, text: `D) Shanghai` }
+            ]
+          },
+          {
+            id: `L4_Q2`,
+            numLabel: `32.`,
+            prompt: `What does the weather report predict?`,
+            options: [
+              { letter: `A`, text: `A) Hailstorm` },
+              { letter: `B`, text: `B) Thunderstorm` },
+              { letter: `C`, text: `C) Heavy rain` },
+              { letter: `D`, text: `D) Strong winds` }
+            ]
+          },
+          {
+            id: `L4_Q3`,
+            numLabel: `33.`,
+            prompt: `When will the predicted weather occur?`,
+            options: [
+              { letter: `A`, text: `A) 1:00 pm` },
+              { letter: `B`, text: `B) 3:00 pm` },
+              { letter: `C`, text: `C) Within 1 to 3 hours` },
+              { letter: `D`, text: `D) Between 1:00 pm and 3:00 pm` }
+            ]
+          },
+          {
+            id: `L4_Q4`,
+            numLabel: `34.`,
+            prompt: `From where will the weather phenomenon come?`,
+            options: [
+              { letter: `A`, text: `A) East` },
+              { letter: `B`, text: `B) South` },
+              { letter: `C`, text: `C) West` },
+              { letter: `D`, text: `D) North` }
+            ]
+          },
+          {
+            id: `L4_Q5`,
+            numLabel: `35.`,
+            prompt: `What does the report NOT suggest people do?`,
+            options: [
+              { letter: `A`, text: `A) To stay indoors` },
+              { letter: `B`, text: `B) To stay in open areas` },
+              { letter: `C`, text: `C) To watch the weather closely` },
+              { letter: `D`, text: `D) To call for help in case of emergency` }
+            ]
+          }
+        ]
+      },
+      {
+        setNumber: 5,
+        audioKey: `audio_set_5`,
+        instruction: `Selection 5: Report (Selection plays one time.)`,
+        transcriptHant: `大家好，我代表我們小組的四名同學向大家匯報一下我們這次就環保開展的調查活動的結果。本次調查共發放問卷223份。收回問卷率為百分之九十。百分之八十五的學生對問卷進行了認真填寫。調查結果顯示，百分之七十六的同學已經認識到環境保護的重要性，並會主動監察自己的行為。百分之十八的同學呢，認為他們的環保意識還可以，但做得還不夠。百分之六的同學覺得自己他們沒有什麼環保意識，並承認有破壞環保環境的行為。當問到如果在公共場所看到有人亂扔垃圾，他們會怎麼做時，百分之八十七的同學說他們雖然知道那樣做不對，但不會去管別人，認為只要自己不去扔就行了。百分之九的同學說他們會告訴那些人把垃圾撿起來。百分之四的同學覺得無所謂，反正有清潔工處理垃圾。以上是我們小組的調查報告，謝謝大家。`,
+        transcriptHans: `大家好，我代表我们小组的四名同学向大家汇报一下我们这次就环保开展的调查活动的结果。本次调查共发放问卷223份。收回问卷率为百分之九十。百分之八十五的学生对问卷进行了认真填写。调查结果显示，百分之七十六的同学已经认识到环境保护的重要性，并会主动监察自己的行为。百分之十八的同学呢，认为他们的环保意识还可以，但做得还不够。百分之六的同学觉得自己他们没有什么环保意识，并承认有破坏环保环境的行为。当问到如果在公共场所看到有人乱扔垃圾，他们会怎么做时，百分之八十七的同学说他们虽然知道那样做不对，但不会去管别人，认为只要自己不去扔就行了。百分之九的同学说他们会告诉那些人把垃圾捡起来。百分之四的同学觉得无所谓，反正有清洁工处理垃圾。以上是我们小组的调查报告，谢谢大家。`,
+        questions: [
+          {
+            id: `L5_Q1`,
+            numLabel: `31.`,
+            prompt: `What percentage of the students turned in their survey?`,
+            options: [
+              { letter: `A`, text: `A) 85%` },
+              { letter: `B`, text: `B) 90%` },
+              { letter: `C`, text: `C) 87%` },
+              { letter: `D`, text: `D) 76%` }
+            ]
+          },
+          {
+            id: `L5_Q2`,
+            numLabel: `32.`,
+            prompt: `What is the percentage of students who understand the importance of environmental protection?`,
+            options: [
+              { letter: `A`, text: `A) 67%` },
+              { letter: `B`, text: `B) 76%` },
+              { letter: `C`, text: `C) 85%` },
+              { letter: `D`, text: `D) 87%` }
+            ]
+          },
+          {
+            id: `L5_Q3`,
+            numLabel: `33.`,
+            prompt: `18% of the students`,
+            options: [
+              { letter: `A`, text: `A) think they should do more to protect the environment` },
+              { letter: `B`, text: `B) did not participate in the survey` },
+              { letter: `C`, text: `C) are motivated to protect the environment` },
+              { letter: `D`, text: `D) do not care about the environment` }
+            ]
+          },
+          {
+            id: `L5_Q4`,
+            numLabel: `34.`,
+            prompt: `How many students in total participated in this survey?`,
+            options: [
+              { letter: `A`, text: `A) 120` },
+              { letter: `B`, text: `B) 210` },
+              { letter: `C`, text: `C) 2,000` },
+              { letter: `D`, text: `D) 200` }
+            ]
+          },
+          {
+            id: `L5_Q5`,
+            numLabel: `35.`,
+            prompt: `The majority of the students think`,
+            options: [
+              { letter: `A`, text: `A) they should correct people's bad behavior in public` },
+              { letter: `B`, text: `B) they only need to watch their own behavior` },
+              { letter: `C`, text: `C) they would help pick up waste that other people throw away` },
+              { letter: `D`, text: `D) it is other people's job to keep the environment clean` }
+            ]
+          }
+        ]
+      }
+    ];
+
+    const BASE_READING_SETS = [
+      {
+        setNumber: 1,
+        instruction: `Read this e-mail.`,
+        passageHant: `發件人：小紅\n收件人：媽媽\n郵件主題：在中國旅遊\n發件日期：7月18日\n\n親愛的媽媽：\n您好！今天是我在北京的第四天。前兩天，我去了天安門、故宫、長城和十三陵，昨天我逛了王府井。據説王府井是北京最有名的一條商業街，但是我最感興趣的不是那些賣各種世界名牌的商店，也不是被中華老字號的商店，更不是街頭表演，而是王府井的小吃街。在王府井商業街裡有一條小胡同，裡面全都是專賣各種小吃的店鋪。每個店鋪所賣的食品都具有獨特的地方風味。比如，新疆的烤羊肉串兒、陝西的羊肉泡饃、四川的麻辣粉兒，還有上海的小籠包，等等，多得吃不過來。我想，將來有機會，我一定要帶您來品嚐這裡的美食。\n明天我就要離開北京去昆明、廣州、珠海等城市了，大約一週後到香港。您在家安心養病，不要擔心我，我會隨時給您寫信或打電話。\n再見！\n女兒 小紅上`,
+        passageHans: `发件人：小红\n收件人：妈妈\n邮件主题：在中国旅游\n发件日期：7月18日\n\n亲爱的妈妈：\n您好！今天是我在北京的第四天。前两天，我去了天安门、故宫、长城和十三陵，昨天我逛了王府井。据说王府井是北京最有名的一条商业街，但是我最感兴趣的不是那些卖各种世界名牌的商店，也不是被中华老字号的商店，更不是街头表演，而是王府井的小吃街。在王府井商业街里有一条小胡同，里面全都是专卖各种小吃的店铺。每个店铺所卖的食品都具有独特的地方风味。比如，新疆的烤羊肉串儿、陕西的羊肉泡馍、四川的麻辣粉儿，还有上海的小笼包，等等，多得吃不过来。我想，将来有机会，我一定要带您来品尝这里的美食。\n明天我就要离开北京去昆明、广州、珠海等城市了，大约一周后到香港。您在家安心养病，不要担心我，我会随时给您写信或打电话。\n再见！\n女儿 小红上`,
+        questions: [
+          {
+            id: `R1_Q1`,
+            numLabel: `1.`,
+            prompt: `What was the most memorable location of her trip?`,
+            options: [
+              { letter: `A`, text: `A) The Forbidden City` },
+              { letter: `B`, text: `B) The Great Wall` },
+              { letter: `C`, text: `C) Tian’anmen Square` },
+              { letter: `D`, text: `D) Wangfujing Snack Street` }
+            ]
+          },
+          {
+            id: `R1_Q2`,
+            numLabel: `2.`,
+            prompt: `Which of the following statements is TRUE?`,
+            options: [
+              { letter: `A`, text: `A) Spicy bean noodles are from Beijing.` },
+              { letter: `B`, text: `B) Steamed pork dumplings are from Shanghai.` },
+              { letter: `C`, text: `C) Lamb kabobs are from Sichuan.` },
+              { letter: `D`, text: `D) There are various snacks from the world at Wangfujing Snack Street.` }
+            ]
+          },
+          {
+            id: `R1_Q3`,
+            numLabel: `3.`,
+            prompt: `What aspect of Wangfujing Street does Xiaohong like the most?`,
+            options: [
+              { letter: `A`, text: `A) Eating the snacks of Wangfujing` },
+              { letter: `B`, text: `B) Shopping in internationally known brand name stores` },
+              { letter: `C`, text: `C) Shopping in traditional Chinese stores` },
+              { letter: `D`, text: `D) Watching street performances` }
+            ]
+          },
+          {
+            id: `R1_Q4`,
+            numLabel: `4.`,
+            prompt: `What part of China will Xiaohong visit next?`,
+            options: [
+              { letter: `A`, text: `A) The North` },
+              { letter: `B`, text: `B) The South` },
+              { letter: `C`, text: `C) The East` },
+              { letter: `D`, text: `D) The West` }
+            ]
+          },
+          {
+            id: `R1_Q5`,
+            numLabel: `5.`,
+            prompt: `Which of the following statements about Xiaohong's mother is TRUE?`,
+            options: [
+              { letter: `A`, text: `A) She met with Xiaohong in Hong Kong the following week.` },
+              { letter: `B`, text: `B) She was sick at home.` },
+              { letter: `C`, text: `C) She continued to stay in Beijing after Xiaohong left.` },
+              { letter: `D`, text: `D) She was waiting for Xiaohong to come to Kunming the next day.` }
+            ]
+          }
+        ]
+      },
+      {
+        setNumber: 2,
+        instruction: `Read the following passage carefully.`,
+        passageHant: `4月的一天，爺孫二人牽著一頭小毛驢去趕集。集市上人山人海，有說書唱戲的，有打拳賣藝的，也有賣燒餅的，非常熱鬧。逛了半天，他們有些累了。爺爺心疼孫子，就讓他騎著驢走，自己在後面跟著。沒走多遠，聽見有人說：「那孩子真不懂事兒，他自己騎在驢上，讓爺爺在後面跟著走。」聽了這話，孫子馬上跳下來，把爺爺扶上驢，自己在後面趕著驢走。\n沒走多遠，又有人說：「這個老頭兒真可笑，自己騎在驢上，倒讓小孫子給他趕驢，不疼愛孩子。」聽了這話，爺爺又忙跳下驢來。孫子在前面牽著，爺爺在後面趕著向前走。沒走多遠，看見的人又嘲笑說：「你看這一老一小，真是一對大傻瓜，有驢不騎，卻在地上走。」聽了這話，爺爺趕忙又把孫子扶到驢上，然後自己也爬上去。祖孫倆一前一後，同時騎在驢上，壓得小毛驢直冒汗。沒走多遠，又有人批評說：「哼！這兩個人簡直是在虐待小驢。」聽了這話，祖孫二人一塊兒跳下驢來，心想，這驢到底怎麼騎才好？\n爺孫倆對視了半天，爺爺說：「孩子，只有一個辦法了，咱們乾脆抬著驢子走吧。」說完，兩個人把驢子的四條腿綁起來，用一根棍子抬著走了。孫子累得要死，生氣地說：「這頭驢好麻煩，沒有它就好了。」爺爺上氣不接下氣地說：「驢子不會說話，不能怨它。就是那些多事兒的人，鬧得咱們不知所措，才抬著驢子走的。」`,
+        passageHans: `4月的一天，爷孙二人牵着一头小毛驴去赶集。集市上人山人海，有说书唱戏的，有打拳卖艺的，也有卖烧饼的，非常热闹。逛了半天，他们有些累了。爷爷心疼孙子，就让他骑着驴走，自己在后面跟着。没走多远，听见有人说：“那孩子真不懂事儿，他自己骑在驴上，让爷爷在后面跟着走。”听了这话，孙子马上跳下来，把爷爷扶上驴，自己在后面赶着驴走。\n没走多远，又有人说：“这个老头儿真可笑，自己骑在驴上，倒让小孙子给他赶驴，不疼爱孩子。”听了这话，爷爷又忙跳下驴来。孙子在前面牵着，爷爷在后面赶着向前走。没走多远，看见的人又嘲笑说：“你看这一老一小，真是一对大傻瓜，有驴不骑，却在地上走。”听了这话，爷爷赶忙又把孙子扶到驴上，然后自己也爬上去。祖孙俩一前一后，同时骑在驴上，压得小毛驴直冒汗。没走多远，又有人批评说：“哼！这两个人简直是在虐待小驴。”听了这话，祖孙二人一块儿跳下驴来，心想，这驴到底怎么骑才好？\n爷孙俩对视了半天，爷爷说：“孩子，只有一个办法了，咱们干脆抬着驴子走吧。”说完，两个人把驴子的四条腿绑起来，用一根棍子抬着走了。孙子累得要死，生气地说：“这头驴好麻烦，没有它就好了。”爷爷上气不接下气地说：“驴子不会说话，不能怨它。就是那些多事儿的人，闹得咱们不知所措，才抬着驴子走的。”`,
+        questions: [
+          {
+            id: `R2_Q1`,
+            numLabel: `1.`,
+            prompt: `Which of the following statements is TRUE?`,
+            options: [
+              { letter: `A`, text: `A) The story took place during the spring.` },
+              { letter: `B`, text: `B) A grandfather and his grandson went to visit their relatives.` },
+              { letter: `C`, text: `C) People were selling books at the market.` },
+              { letter: `D`, text: `D) A father and son went shopping with a donkey.` }
+            ]
+          },
+          {
+            id: `R2_Q2`,
+            numLabel: `2.`,
+            prompt: `Why did the townspeople complain when they saw the boy riding the donkey?`,
+            options: [
+              { letter: `A`, text: `A) The boy was too heavy.` },
+              { letter: `B`, text: `B) The boy should let his grandfather ride the donkey.` },
+              { letter: `C`, text: `C) The donkey was tired.` },
+              { letter: `D`, text: `D) The grandfather was upset.` }
+            ]
+          },
+          {
+            id: `R2_Q3`,
+            numLabel: `3.`,
+            prompt: `The grandfather got on the donkey because`,
+            options: [
+              { letter: `A`, text: `A) he was tired` },
+              { letter: `B`, text: `B) he was upset with the boy` },
+              { letter: `C`, text: `C) he thought that was what the townspeople wanted him to do` },
+              { letter: `D`, text: `D) he thought the donkey was strong enough to carry him` }
+            ]
+          },
+          {
+            id: `R2_Q4`,
+            numLabel: `4.`,
+            prompt: `Why did both the boy and the grandfather get on the donkey?`,
+            options: [
+              { letter: `A`, text: `A) The donkey was refreshed from a rest.` },
+              { letter: `B`, text: `B) The townspeople wanted to take the donkey away.` },
+              { letter: `C`, text: `C) The townspeople complained that nobody was using the donkey.` },
+              { letter: `D`, text: `D) Both the boy and grandfather were tired.` }
+            ]
+          },
+          {
+            id: `R2_Q5`,
+            numLabel: `5.`,
+            prompt: `What did the boy and grandfather do with the donkey in the end?`,
+            options: [
+              { letter: `A`, text: `A) They sold it on the market.` },
+              { letter: `B`, text: `B) They walked the donkey home.` },
+              { letter: `C`, text: `C) They carried the donkey home by a stick.` },
+              { letter: `D`, text: `D) They both rode the donkey home.` }
+            ]
+          }
+        ]
+      },
+      {
+        setNumber: 3,
+        instruction: `Read this advertisement.`,
+        passageHant: `Advertisement\n暑期即將來臨，我成才學校補習班開始招生。補習班現開設小學部、初中部和高中部課程，分別招生80人班、100人班和120人班。\n開設課程： 小學部開設的課程爲語文、數學和英語課程。初中部開設數學、 化學、英語和地理課程。高中部除初中部開設的課程外，還增開 生物課。\n上課日期： 7月5日–8月25日\n上課時間： 小學部，周二、周四，上午8:30-12:30\n初中部，每周一、三、四, 上午8:30-12:30\n高中部，每周二、三、五，上午8:30-12:30\n報名及上課地點：本市第六中學\n報名時間： 6月25日至6月30日`,
+        passageHans: `Advertisement\n暑期即将来临，我成才学校补习班开始招生。补习班现开设小学部、初中部和高中部课程，分别招生80人班、100人班和120人班。\n开设课程： 小学部开设的课程为语文、数学和英语课程。初中部开设数学、 化学、英语和地理课程。高中部除初中部开设的课程外，还增开 生物课。\n上课日期： 7月5日–8月25日\n上课时间： 小学部，周二、周四，上午8:30-12:30\n初中部，每周一、三、四, 上午8:30-12:30\n高中部，每周二、三、五，上午8:30-12:30\n报名及上课地点：本市第六中学\n报名时间： 6月25日至6月30日`,
+        questions: [
+          {
+            id: `R3_Q1`,
+            numLabel: `1.`,
+            prompt: `What is this advertisement promoting?`,
+            options: [
+              { letter: `A`, text: `(A) College preparation classes` },
+              { letter: `B`, text: `(B) Adult school` },
+              { letter: `C`, text: `(C) After-school programs` },
+              { letter: `D`, text: `(D) Summer school` }
+            ]
+          },
+          {
+            id: `R3_Q2`,
+            numLabel: `2.`,
+            prompt: `How many high school students will this program accept?`,
+            options: [
+              { letter: `A`, text: `(A) 80` },
+              { letter: `B`, text: `(B) 100` },
+              { letter: `C`, text: `(C) 120` },
+              { letter: `D`, text: `(D) 180` }
+            ]
+          },
+          {
+            id: `R3_Q3`,
+            numLabel: `3.`,
+            prompt: `Which program offers a Chinese class?`,
+            options: [
+              { letter: `A`, text: `(A) Middle school` },
+              { letter: `B`, text: `(B) Elementary school` },
+              { letter: `C`, text: `(C) High school` },
+              { letter: `D`, text: `(D) None` }
+            ]
+          },
+          {
+            id: `R3_Q4`,
+            numLabel: `4.`,
+            prompt: `What is the deadline for registration?`,
+            options: [
+              { letter: `A`, text: `(A) June 25` },
+              { letter: `B`, text: `(B) June 30` },
+              { letter: `C`, text: `(C) July 5` },
+              { letter: `D`, text: `(D) August 25` }
+            ]
+          },
+          {
+            id: `R3_Q5`,
+            numLabel: `5`,
+            prompt: `What other information should the advertisement provide?`,
+            options: [
+              { letter: `A`, text: `(A) The advertisement should inform students of the location.` },
+              { letter: `B`, text: `(B) The advertisement should tell people the registration fees.` },
+              { letter: `C`, text: `(C) The time of registration should be provided in the advertisement.` },
+              { letter: `D`, text: `(D) A class list should be given in the advertisement.` }
+            ]
+          }
+        ]
+      },
+      {
+        setNumber: 4,
+        instruction: `Read the passage and refer to the chart if attached.`,
+        needsChartNote: true,
+        passageHant: `林先生經營一家小賓館，最近計劃改善賓館的設施和服務。爲了了解住客的意見，他連續三個月向住客發放問卷，並把大家反映的問題製成圖表。調查發現，臨街房間在清晨經常能聽到車輛和送貨的聲音；早餐只有麪包、雞蛋和牛奶；頂層房間有時無法正常連接網路(絡)；另外，還有兩間舊客房的淋浴水壓較低。林先生原本打算先升級無線網路(絡)，因爲費用比較低。但是，他比較圖表中的各項數據後，決定優先解決住客反映最多的問題。由於今年的預算有限，他只能先把臨街房間的窗戶換成隔音窗。明年如果收入增加，他再增加早餐種類，其他問題則在日常維修中逐步解決。`,
+        passageHans: `林先生经营一家小宾馆，最近计划改善宾馆的设施和服务。为了了解住客的意见，他连续三个月向住客发放问卷，并把大家反映的问题制成图表。调查发现，临街房间在清晨经常能听到车辆和送货的声音；早餐只有面包、鸡蛋和牛奶；顶层房间有时无法正常连接网路(络)；另外，还有两间旧客房的淋浴水压较低。林先生原本打算先升级无线网路(络)，因为费用比较低。但是，他比较图表中的各项数据后，决定优先解决住客反映最多的问题。由于今年的预算有限，他只能先把临街房间的窗户换成隔音窗。明年如果收入增加，他再增加早餐种类，其他问题则在日常维修中逐步解决。`,
+        questions: [
+          {
+            id: `R4_Q1`,
+            numLabel: `1.`,
+            prompt: `According to the article and the chart, what percentage of guests reported the problem Mr. Lin plans to address next year?`,
+            options: [
+              { letter: `A`, text: `(A) 36%` },
+              { letter: `B`, text: `(B) 28%` },
+              { letter: `C`, text: `(C) 21%` },
+              { letter: `D`, text: `(D) 15%` }
+            ]
+          },
+          {
+            id: `R4_Q2`,
+            numLabel: `2.`,
+            prompt: `According to the article and the chart, between the two problems to be addressed through routine maintenance, which was reported by a larger percentage of guests?`,
+            options: [
+              { letter: `A`, text: `(A) Street noise` },
+              { letter: `B`, text: `(B) Limited breakfast choices` },
+              { letter: `C`, text: `(C) Unstable Wi-Fi` },
+              { letter: `D`, text: `(D) Low shower water pressure` }
+            ]
+          },
+          {
+            id: `R4_Q3`,
+            numLabel: `3.`,
+            prompt: `According to the article, why did Mr. Lin first consider upgrading the Wi-Fi?`,
+            options: [
+              { letter: `A`, text: `(A) Guests complained about the cost.` },
+              { letter: `B`, text: `(B) The top floor was being remodeled.` },
+              { letter: `C`, text: `(C) The work would cost less.` },
+              { letter: `D`, text: `(D) The windows had already been replaced.` }
+            ]
+          },
+          {
+            id: `R4_Q4`,
+            numLabel: `4.`,
+            prompt: `According to the article, what causes noise in the street-facing rooms?`,
+            options: [
+              { letter: `A`, text: `(A) Hotel employees` },
+              { letter: `B`, text: `(B) Breakfast service` },
+              { letter: `C`, text: `(C) Running showers` },
+              { letter: `D`, text: `(D) Morning traffic and deliveries` }
+            ]
+          },
+          {
+            id: `R4_Q5`,
+            numLabel: `5.`,
+            prompt: `According to the article, why will the work be completed gradually?`,
+            options: [
+              { letter: `A`, text: `(A) Some rooms are occupied.` },
+              { letter: `B`, text: `(B) The budget is limited.` },
+              { letter: `C`, text: `(C) The workers are unavailable.` },
+              { letter: `D`, text: `(D) The hotel will close soon.` }
+            ]
+          }
+        ]
+      },
+      {
+        setNumber: 5,
+        instruction: `Read the following article.`,
+        passageHant: `谷歌調整中小學生 AI 搜尋功能\n\n美國科技公司谷歌宣布，將調整「谷歌課堂」中的人工智能（AI）搜尋功能。從十一月三日起，幼兒園至高中十二年級的學生，除非學校管理人員特別開啟，否則將無法使用這項功能。谷歌表示，這項改變是為了讓學生學會獨立思考，而不是直接尋找答案，同時也讓學校有更多權力決定如何使用 AI。\n新版搜尋工具不會直接提供答案，而是透過提示，引導學生一步一步理解問題。例如，學生遇到複雜的物理問題時，系統會提供思考方向，幫助他們掌握相關概念。\n然而，兒童權益組織「公平競爭」對這項政策提出批評，認為 AI 可能影響孩子的學習與批判性思考能力，學校應該有權拒絕使用相關工具。隨著 AI 逐漸進入校園，美國部分城市也開始限制學生使用生成式 AI。如何在科技應用與學習品質之間取得平衡，已成為教育界關注的議題。`,
+        passageHans: `谷歌调整中小学生 AI 搜寻功能\n\n美国科技公司谷歌宣布，将调整“谷歌课堂”中的人工智能（AI）搜寻功能。从十一月三日起，幼儿园至高中十二年级的学生，除非学校管理人员特别开启，否则将无法使用这项功能。谷歌表示，这项改变是为了让学生学会独立思考，而不是直接寻找答案，同时也让学校有更多权力决定如何使用 AI。\n新版搜寻工具不会直接提供答案，而是透过提示，引导学生一步一步理解问题。例如，学生遇到复杂的物理问题时，系统会提供思考方向，帮助他们掌握相关概念。\n然而，儿童权益组织“公平竞争”对这项政策提出批评，认为 AI 可能影响孩子的学习与批判性思考能力，学校应该有权拒绝使用相关工具。随着 AI 逐渐进入校园，美国部分城市也开始限制学生使用生成式 AI。如何在科技应用与学习品质之间取得平衡，已成为教育界关注的议题。`,
+        questions: [
+          {
+            id: `R5_Q1`,
+            numLabel: `1.`,
+            prompt: `According to the passage, why is Google changing its search functions for students?`,
+            options: [
+              { letter: `A`, text: `A. To reduce the cost of computers in schools.` },
+              { letter: `B`, text: `B. To encourage students to think independently and understand problems.` },
+              { letter: `C`, text: `C. To improve students' Internet search speed.` },
+              { letter: `D`, text: `D. To reduce the need for teachers' assistance.` }
+            ]
+          },
+          {
+            id: `R5_Q2`,
+            numLabel: `2.`,
+            prompt: `What is a feature of Google's updated AI search tool?`,
+            options: [
+              { letter: `A`, text: `A. It provides direct answers to all questions.` },
+              { letter: `B`, text: `B. It prevents students from searching for physics information.` },
+              { letter: `C`, text: `C. It guides students through problems with hints.` },
+              { letter: `D`, text: `D. It requires students to design their own search systems.` }
+            ]
+          },
+          {
+            id: `R5_Q3`,
+            numLabel: `3.`,
+            prompt: `What is the position of the Fairplay organization regarding this policy?`,
+            options: [
+              { letter: `A`, text: `A. It supports the widespread use of AI in schools.` },
+              { letter: `B`, text: `B. It believes AI improves learning efficiency.` },
+              { letter: `C`, text: `C. It believes schools should have the right to reject AI tools.` },
+              { letter: `D`, text: `D. It wants all students to use Google Search.` }
+            ]
+          },
+          {
+            id: `R5_Q4`,
+            numLabel: `4.`,
+            prompt: `What can be inferred about the challenges facing American schools?`,
+            options: [
+              { letter: `A`, text: `A. How to completely eliminate students' use of the Internet.` },
+              { letter: `B`, text: `B. How to balance the use of technology with the quality of education.` },
+              { letter: `C`, text: `C. How to increase the amount of time students spend using AI.` },
+              { letter: `D`, text: `D. How to make all schools adopt the same teaching methods.` }
+            ]
+          },
+          {
+            id: `R5_Q5`,
+            numLabel: `5.`,
+            prompt: `What is the main purpose of this article?`,
+            options: [
+              { letter: `A`, text: `A. To explain how Google develops new search technologies.` },
+              { letter: `B`, text: `B. To discuss how American schools purchase digital learning equipment.` },
+              { letter: `C`, text: `C. To discuss Google's changes to AI search functions and the educational debate surrounding them.` },
+              { letter: `D`, text: `D. To explain how students use the Internet to complete physics assignments.` }
+            ]
+          }
+        ]
+      },
+      {
+        setNumber: 6,
+        instruction: `Read this e-mail.`,
+        passageHant: `發件人：星星高中校長辦公室\n收件人：全校家長\n郵件主題：開學前注意事項\n發件日期：8月1日\n附件：1. 免費午餐申請表\n2. 緊急聯絡表\n\n各位家長：\n學校定於9月1日開學，開學之前，有些重要事項希望家長注意。附件中有兩份表格：一份是免費午餐申請表，如果您的孩子符合學校提供免費午餐的條件，您可以填表申請；另一份是緊急聯絡表，請您在表格上填寫三個親朋好友的名字、住址和聯絡方式，除了電郵和手機號碼之外，最重要的是他們的電話號碼及您的簽名。\n兩份表格必須在開學後兩個星期內交給校長秘書王小姐。如果您不用申請免費午餐，則只需提交緊急聯絡表。謝謝您的支持與合作！\n祝您暑期愉快！\n星星高中校長辦公室`,
+        passageHans: `发件人：星星高中校长办公室\n收件人：全校家长\n邮件主题：开学前注意事项\n发件日期：8月1日\n附件：1. 免费午餐申请表\n2. 紧急联络表\n\n各位家长：\n学校定于9月1日开学，开学之前，有些重要事项希望家长注意。附件中有两份表格：一份是免费午餐申请表，如果您的孩子符合学校提供免费午餐的条件，您可以填表申请；另一份是紧急联络表，请您在表格上填写三个亲朋好友的名字、住址和联络方式，除了电邮和手机号码之外，最重要的是他们的电话号码及您的签名。\n两份表格必须在开学后两个星期内交给校长秘书王小姐。如果您不用申请免费午餐，则只需提交紧急联络表。谢谢您的支持与合作！\n祝您暑期愉快！\n星星高中校长办公室`,
+        questions: [
+          {
+            id: `R6_Q1`,
+            numLabel: `1.`,
+            prompt: `How long do the parents have to fill out and turn in the forms after the e-mail is sent?`,
+            options: [
+              { letter: `A`, text: `A) One month` },
+              { letter: `B`, text: `B) Two weeks` },
+              { letter: `C`, text: `C) One month and two weeks` },
+              { letter: `D`, text: `D) Two months` }
+            ]
+          },
+          {
+            id: `R6_Q2`,
+            numLabel: `2.`,
+            prompt: `Where can the parents get the forms?`,
+            options: [
+              { letter: `A`, text: `A) From Miss Wang of the principal's office` },
+              { letter: `B`, text: `B) From the students, as the forms have been sent home with the students` },
+              { letter: `C`, text: `C) From the principal` },
+              { letter: `D`, text: `D) From the e-mail attachment` }
+            ]
+          },
+          {
+            id: `R6_Q3`,
+            numLabel: `3.`,
+            prompt: `One of the two forms is`,
+            options: [
+              { letter: `A`, text: `A) for lunch card purchase` },
+              { letter: `B`, text: `B) for free lunch application` },
+              { letter: `C`, text: `C) for picnic signup` },
+              { letter: `D`, text: `D) for homework buddy signup` }
+            ]
+          },
+          {
+            id: `R6_Q4`,
+            numLabel: `4.`,
+            prompt: `Of the two forms, the parents are informed that`,
+            options: [
+              { letter: `A`, text: `A) both have to be turned in` },
+              { letter: `B`, text: `B) only one must be turned in` },
+              { letter: `C`, text: `C) neither one has to be turned in` },
+              { letter: `D`, text: `D) neither one requires a parent's signature` }
+            ]
+          },
+          {
+            id: `R6_Q5`,
+            numLabel: `5.`,
+            prompt: `Which of the following statements is FALSE?`,
+            options: [
+              { letter: `A`, text: `A) The emergency card requires parents’ contact information.` },
+              { letter: `B`, text: `B) The emergency card asks for the emergency contacts’ telephone numbers.` },
+              { letter: `C`, text: `C) The emergency card asks for the emergency contacts’ e-mail addresses.` },
+              { letter: `D`, text: `D) The emergency card requires the emergency contacts’ cell phone numbers.` }
+            ]
+          }
+        ]
+      }
+    ];
+
+    /* ======================================================================
+       APPLICATION STATE (Persisted via window.notebookAppApi)
+       ====================================================================== */
+    const LISTENING_DURATION_SEC = 25 * 60;
+    const READING_DURATION_SEC = 40 * 60;
+
+    let appState = {
+      scriptMode: `hant`, // 'hant' | 'hans'
+      teacherMode: false,
+      activeView: `listening`, // 'listening' | 'reading' | 'summary' | 'teacher-responses'
+      activeListeningSet: 1,
+      activeReadingSet: 1,
+      studentName: ``,
+      studentId: ``,
+      answers: {}, // e.g. { L1_Q1: 'C', R1_Q1: 'D' }
+      timersEnabled: true,
+      timerPaused: false,
+      listeningRemaining: LISTENING_DURATION_SEC,
+      readingRemaining: READING_DURATION_SEC,
+      audioUrls: {
+        audio_set_1: ``,
+        audio_set_2: ``,
+        audio_set_3: ``,
+        audio_set_4: ``,
+        audio_set_5: ``
+      },
+      teacherEdits: {
+        passages: {}, // e.g. { R1: { hant: '...', hans: '...' } }
+        transcripts: {}, // e.g. { L1: { hant: '...', hans: '...' } }
+        questions: {} // e.g. { L1_Q1: { prompt: '...', options: { A: '...', B: '...', C: '...', D: '...' } } }
+      },
+      submissions: []
+    };
+
+    // Runtime-only Object URLs for uploaded local files (never persisted as binary blobs in setAppState)
+    const sessionAudioBlobs = {
+      audio_set_1: { objectUrl: ``, fileName: `` },
+      audio_set_2: { objectUrl: ``, fileName: `` },
+      audio_set_3: { objectUrl: ``, fileName: `` },
+      audio_set_4: { objectUrl: ``, fileName: `` },
+      audio_set_5: { objectUrl: ``, fileName: `` }
+    };
+
+    const sessionImageBlobs = {
+      listening_1: { objectUrl: ``, fileName: `` },
+      listening_2: { objectUrl: ``, fileName: `` },
+      listening_3: { objectUrl: ``, fileName: `` },
+      listening_4: { objectUrl: ``, fileName: `` },
+      listening_5: { objectUrl: ``, fileName: `` },
+      reading_1: { objectUrl: ``, fileName: `` },
+      reading_2: { objectUrl: ``, fileName: `` },
+      reading_3: { objectUrl: ``, fileName: `` },
+      reading_4: { objectUrl: ``, fileName: `` },
+      reading_5: { objectUrl: ``, fileName: `` },
+      reading_6: { objectUrl: ``, fileName: `` }
+    };
+
+    let timerIntervalId = null;
+    let saveDebounceId = null;
+    let currentlyPlayingSet = null;
+
+    /* ======================================================================
+       PERSISTENCE HELPERS (notebookAppApi)
+       ====================================================================== */
+    async function saveAppStateNow() {
+      if (window.notebookAppApi && typeof window.notebookAppApi.setAppState === `function`) {
+        try {
+          await window.notebookAppApi.setAppState(appState);
+        } catch (err) {
+          // Graceful fallback if state exceeds limits or host unavailable
+        }
+      }
+    }
+
+    function scheduleSaveState() {
+      if (saveDebounceId) clearTimeout(saveDebounceId);
+      saveDebounceId = setTimeout(function () {
+        saveAppStateNow();
+      }, 250);
+    }
+
+    async function loadInitialState() {
+      if (window.notebookAppApi && typeof window.notebookAppApi.getAppState === `function`) {
+        try {
+          const saved = await window.notebookAppApi.getAppState();
+          if (saved && typeof saved === `object`) {
+            if (saved.scriptMode === `hant` || saved.scriptMode === `hans`) appState.scriptMode = saved.scriptMode;
+            if (typeof saved.activeListeningSet === `number`) appState.activeListeningSet = saved.activeListeningSet;
+            if (typeof saved.activeReadingSet === `number`) appState.activeReadingSet = saved.activeReadingSet;
+            if (typeof saved.studentName === `string`) appState.studentName = saved.studentName;
+            if (typeof saved.studentId === `string`) appState.studentId = saved.studentId;
+            if (saved.answers && typeof saved.answers === `object`) appState.answers = saved.answers;
+            if (typeof saved.timersEnabled === `boolean`) appState.timersEnabled = saved.timersEnabled;
+            if (typeof saved.listeningRemaining === `number`) appState.listeningRemaining = saved.listeningRemaining;
+            if (typeof saved.readingRemaining === `number`) appState.readingRemaining = saved.readingRemaining;
+            if (saved.audioUrls && typeof saved.audioUrls === `object`) {
+              for (let i = 1; i <= 5; i += 1) {
+                const k = `audio_set_${i}`;
+                if (typeof saved.audioUrls[k] === `string`) appState.audioUrls[k] = saved.audioUrls[k];
+              }
+            }
+            if (saved.teacherEdits && typeof saved.teacherEdits === `object`) {
+              appState.teacherEdits = {
+                passages: saved.teacherEdits.passages || {},
+                transcripts: saved.teacherEdits.transcripts || {},
+                questions: saved.teacherEdits.questions || {}
+              };
+            }
+            if (Array.isArray(saved.submissions)) appState.submissions = saved.submissions;
+          }
+        } catch (err) {
+          // Ignore load errors
+        }
+      }
+    }
+
+    /* ======================================================================
+       TEXT ACCESSORS (Merges immutable source with Teacher Mode edits)
+       ====================================================================== */
+    function getTranscriptText(setNum) {
+      const setObj = BASE_LISTENING_SETS[setNum - 1];
+      const edit = appState.teacherEdits.transcripts[`L${setNum}`];
+      if (appState.scriptMode === `hans`) {
+        return (edit && typeof edit.hans === `string`) ? edit.hans : setObj.transcriptHans;
+      }
+      return (edit && typeof edit.hant === `string`) ? edit.hant : setObj.transcriptHant;
+    }
+
+    function getPassageText(setNum) {
+      const setObj = BASE_READING_SETS[setNum - 1];
+      const edit = appState.teacherEdits.passages[`R${setNum}`];
+      if (appState.scriptMode === `hans`) {
+        return (edit && typeof edit.hans === `string`) ? edit.hans : setObj.passageHans;
+      }
+      return (edit && typeof edit.hant === `string`) ? edit.hant : setObj.passageHant;
+    }
+
+    function getQuestionPrompt(qObj) {
+      const edit = appState.teacherEdits.questions[qObj.id];
+      return (edit && typeof edit.prompt === `string`) ? edit.prompt : qObj.prompt;
+    }
+
+    function getOptionText(qObj, optObj) {
+      const edit = appState.teacherEdits.questions[qObj.id];
+      if (edit && edit.options && typeof edit.options[optObj.letter] === `string`) {
+        return edit.options[optObj.letter];
+      }
+      return optObj.text;
+    }
+
+    /* ======================================================================
+       CLOUD STREAM URL NORMALIZER (Per-set, no hardcoded external URLs)
+       ====================================================================== */
+    function normalizeCloudAudioUrl(rawUrl) {
+      const trimmed = (rawUrl || ``).trim();
+      if (!trimmed) return ``;
+      try {
+        const parsed = new URL(trimmed);
+        const host = parsed.hostname.toLowerCase();
+        // Google Drive share links -> direct download/stream endpoint
+        if (host.includes(`drive.google.com`)) {
+          const match = parsed.pathname.match(/\/file\/d\/([^/]+)/);
+          if (match && match[1]) {
+            return `${parsed.protocol}//${parsed.host}/uc?export=download&id=${match[1]}`;
+          }
+          const idParam = parsed.searchParams.get(`id`);
+          if (idParam) {
+            return `${parsed.protocol}//${parsed.host}/uc?export=download&id=${idParam}`;
+          }
+        }
+        // Dropbox share links -> raw stream
+        if (host.includes(`dropbox.com`)) {
+          parsed.searchParams.delete(`dl`);
+          parsed.searchParams.set(`raw`, `1`);
+          return parsed.toString();
+        }
+        return trimmed;
+      } catch (e) {
+        return trimmed;
+      }
+    }
+
+    /* ======================================================================
+       INITIAL DOM CONSTRUCTION (Persistent Set Panels — Audio Never Reset)
+       ====================================================================== */
+    function buildListeningPanels() {
+      const container = document.getElementById(`listening-panels-container`);
+      if (!container) return;
+      container.innerHTML = ``;
+
+      BASE_LISTENING_SETS.forEach(function (setObj) {
+        const n = setObj.setNumber;
+        const panel = document.createElement(`div`);
+        panel.id = `listening-set-panel-${n}`;
+        panel.className = n === appState.activeListeningSet ? `set-workspace` : `set-workspace is-hidden`;
+
+        const leftCol = document.createElement(`div`);
+        leftCol.className = `charter-card`;
+        leftCol.innerHTML = `
+          <div class="card-head">
+            <div>
+              <p class="card-kicker">Section 1 · Listening</p>
+              <h2 class="card-title">Set ${n}</h2>
+            </div>
+            <span class="tag-stamp" id="l-audio-status-${n}">No Audio Attached</span>
+          </div>
+
+          <div class="audio-deck">
+            <p class="audio-instruction">${setObj.instruction}</p>
+            <audio id="audio-player-${n}" controls preload="metadata"></audio>
+            <div class="inline-notice is-warning is-hidden" id="audio-error-notice-${n}" role="status"></div>
+          </div>
+
+          <!-- Chart / Image Display Area -->
+          <div id="l-image-display-${n}">
+            ${setObj.needsChartNote
+              ? `<div class="media-placeholder" id="l-image-placeholder-${n}">Reference Chart: No image attached yet. Enable Teacher Mode to upload the chart for Set ${n}.</div>`
+              : ``}
+          </div>
+
+          <!-- Teacher Only: Audio, Image & Transcript Controls (Strictly hidden from students) -->
+          <div class="teacher-panel teacher-only ${appState.teacherMode ? `` : `is-hidden`}" id="l-teacher-panel-${n}">
+            <h3 class="teacher-panel-heading">Teacher Audio &amp; Media Controls — Set ${n} (${setObj.audioKey})</h3>
+
+            <div class="upload-row">
+              <input type="file" id="audio-file-input-${n}" class="file-input-hidden" accept="audio/*" onchange="handleAudioFileUpload(${n}, this)">
+              <button type="button" class="btn btn-primary btn-sm" onclick="triggerAudioUpload(${n})">
+                Upload Audio for Set ${n}
+              </button>
+              <button type="button" class="btn btn-danger btn-sm" onclick="clearSetAudio(${n})">
+                Clear Set ${n} Audio
+              </button>
+            </div>
+
+            <div class="upload-row">
+              <div class="field-group">
+                <label class="field-label" for="audio-url-input-${n}">Direct Cloud Audio URL (Set ${n} Only)</label>
+                <input type="url" id="audio-url-input-${n}" class="input-control" value="${escapeHtmlAttr(appState.audioUrls[setObj.audioKey] || ``)}">
+              </div>
+              <button type="button" class="btn btn-secondary btn-sm" onclick="applyCloudAudioUrl(${n})">
+                Attach URL
+              </button>
+            </div>
+
+            <div class="upload-row">
+              <input type="file" id="l-image-input-${n}" class="file-input-hidden" accept="image/*" onchange="handleSetImageUpload('listening', ${n}, this)">
+              <button type="button" class="btn btn-secondary btn-sm" onclick="triggerImageUpload('listening', ${n})">
+                Upload Image / Chart for Set ${n}
+              </button>
+              <button type="button" class="btn btn-danger btn-sm" onclick="clearSetImage('listening', ${n})">
+                Remove Image
+              </button>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label" for="l-transcript-editor-${n}">Listening Transcript (Teacher Mode Only — Strictly Hidden from Students)</label>
+              <textarea id="l-transcript-editor-${n}" class="textarea-control" rows="6" oninput="updateTranscriptEdit(${n}, this.value)"></textarea>
+            </div>
+          </div>
+        `;
+
+        const rightCol = document.createElement(`div`);
+        rightCol.className = `questions-stack`;
+        rightCol.id = `listening-questions-col-${n}`;
+
+        setObj.questions.forEach(function (qObj) {
+          rightCol.appendChild(createQuestionCardElement(qObj));
+        });
+
+        const footerNav = document.createElement(`div`);
+        footerNav.className = `set-footer-nav`;
+        footerNav.innerHTML = `
+          <button type="button" class="btn btn-secondary" ${n === 1 ? `disabled` : ``} onclick="selectListeningSet(${n - 1})">
+            Previous Set
+          </button>
+          ${n < 5
+            ? `<button type="button" class="btn btn-primary" onclick="selectListeningSet(${n + 1})">Next Set (Set ${n + 1})</button>`
+            : `<button type="button" class="btn btn-primary" onclick="switchView('reading')">Proceed to Section 2: Reading</button>`
+          }
+        `;
+        rightCol.appendChild(footerNav);
+
+        panel.appendChild(leftCol);
+        panel.appendChild(rightCol);
+        container.appendChild(panel);
+
+        // Bind dedicated non-interfering audio listeners for Set n
+        const audioEl = document.getElementById(`audio-player-${n}`);
+        if (audioEl) {
+          audioEl.addEventListener(`play`, function () { onAudioPlay(n); });
+          audioEl.addEventListener(`pause`, function () { onAudioPauseOrEnd(n); });
+          audioEl.addEventListener(`ended`, function () { onAudioPauseOrEnd(n); });
+          audioEl.addEventListener(`timeupdate`, function () { onAudioTimeUpdate(n); });
+          audioEl.addEventListener(`error`, function () { onAudioError(n); });
+        }
+
+        // Load persisted cloud URL if present
+        refreshSetAudioPlayer(n);
+        refreshTranscriptEditor(n);
+      });
+    }
+
+    function buildReadingPanels() {
+      const container = document.getElementById(`reading-panels-container`);
+      if (!container) return;
+      container.innerHTML = ``;
+
+      BASE_READING_SETS.forEach(function (setObj) {
+        const n = setObj.setNumber;
+        const panel = document.createElement(`div`);
+        panel.id = `reading-set-panel-${n}`;
+        panel.className = n === appState.activeReadingSet ? `set-workspace` : `set-workspace is-hidden`;
+
+        const leftCol = document.createElement(`div`);
+        leftCol.className = `charter-card`;
+        leftCol.innerHTML = `
+          <div class="card-head">
+            <div>
+              <p class="card-kicker">Section 2 · Reading</p>
+              <h2 class="card-title">Set ${n}</h2>
+            </div>
+            <span class="tag-stamp">${setObj.instruction}</span>
+          </div>
+
+          <div class="passage-box" id="r-passage-display-${n}"></div>
+
+          <div id="r-image-display-${n}">
+            ${setObj.needsChartNote
+              ? `<div class="media-placeholder" id="r-image-placeholder-${n}">Reference Chart: No image attached yet. Enable Teacher Mode to upload the chart for Set ${n}.</div>`
+              : ``}
+          </div>
+
+          <div class="teacher-panel teacher-only ${appState.teacherMode ? `` : `is-hidden`}" id="r-teacher-panel-${n}">
+            <h3 class="teacher-panel-heading">Teacher Passage &amp; Chart Controls — Reading Set ${n}</h3>
+            <div class="upload-row">
+              <input type="file" id="r-image-input-${n}" class="file-input-hidden" accept="image/*" onchange="handleSetImageUpload('reading', ${n}, this)">
+              <button type="button" class="btn btn-secondary btn-sm" onclick="triggerImageUpload('reading', ${n})">
+                Upload Image / Chart for Set ${n}
+              </button>
+              <button type="button" class="btn btn-danger btn-sm" onclick="clearSetImage('reading', ${n})">
+                Remove Image
+              </button>
+            </div>
+            <div class="field-group">
+              <label class="field-label" for="r-passage-editor-${n}">Edit Reading Passage (Active Script)</label>
+              <textarea id="r-passage-editor-${n}" class="textarea-control" rows="8" oninput="updatePassageEdit(${n}, this.value)"></textarea>
+            </div>
+          </div>
+        `;
+
+        const rightCol = document.createElement(`div`);
+        rightCol.className = `questions-stack`;
+
+        setObj.questions.forEach(function (qObj) {
+          rightCol.appendChild(createQuestionCardElement(qObj));
+        });
+
+        const footerNav = document.createElement(`div`);
+        footerNav.className = `set-footer-nav`;
+        footerNav.innerHTML = `
+          ${n > 1
+            ? `<button type="button" class="btn btn-secondary" onclick="selectReadingSet(${n - 1})">Previous Set</button>`
+            : `<button type="button" class="btn btn-secondary" onclick="switchView('listening')">Back to Section 1: Listening</button>`
+          }
+          ${n < 6
+            ? `<button type="button" class="btn btn-primary" onclick="selectReadingSet(${n + 1})">Next Set (Set ${n + 1})</button>`
+            : `<button type="button" class="btn btn-primary" onclick="handleSubmitExam(document.getElementById('btn-submit-exam'))">Review &amp; Submit Exam</button>`
+          }
+        `;
+        rightCol.appendChild(footerNav);
+
+        panel.appendChild(leftCol);
+        panel.appendChild(rightCol);
+        container.appendChild(panel);
+
+        refreshReadingPassageDisplay(n);
+      });
+    }
+
+    function createQuestionCardElement(qObj) {
+      const card = document.createElement(`article`);
+      card.className = `question-card`;
+      card.id = `q-card-${qObj.id}`;
+
+      const selectedVal = appState.answers[qObj.id] || ``;
+      const promptText = getQuestionPrompt(qObj);
+
+      let optionsHtml = ``;
+      qObj.options.forEach(function (opt) {
+        const isSel = selectedVal === opt.letter;
+        const optText = getOptionText(qObj, opt);
+        optionsHtml += `
+          <label class="option-item ${isSel ? `is-selected` : ``}" id="opt-label-${qObj.id}-${opt.letter}" for="radio-${qObj.id}-${opt.letter}">
+            <input type="radio"
+                   name="q-${qObj.id}"
+                   id="radio-${qObj.id}-${opt.letter}"
+                   value="${opt.letter}"
+                   ${isSel ? `checked` : ``}
+                   onchange="selectAnswer('${qObj.id}', '${opt.letter}')">
+            <span class="option-text" id="opt-text-${qObj.id}-${opt.letter}">${escapeHtml(optText)}</span>
+          </label>
+        `;
+      });
+
+      card.innerHTML = `
+        <p class="question-prompt" id="q-prompt-${qObj.id}">${escapeHtml(qObj.numLabel)} ${escapeHtml(promptText)}</p>
+        <div class="options-list" role="radiogroup" aria-labelledby="q-prompt-${qObj.id}">
+          ${optionsHtml}
+        </div>
+
+        <div class="teacher-panel teacher-only ${appState.teacherMode ? `` : `is-hidden`}" id="q-teacher-edit-${qObj.id}">
+          <h4 class="teacher-panel-heading">Edit Question ${escapeHtml(qObj.numLabel)}</h4>
+          <div class="field-group">
+            <label class="field-label" for="edit-prompt-${qObj.id}">Question Prompt</label>
+            <input type="text" id="edit-prompt-${qObj.id}" class="input-control" value="${escapeHtmlAttr(promptText)}" oninput="updateQuestionPromptEdit('${qObj.id}', this.value)">
+          </div>
+          <div class="student-fields">
+            ${qObj.options.map(function (opt) {
+              const ot = getOptionText(qObj, opt);
+              return `
+                <div class="field-group">
+                  <label class="field-label" for="edit-opt-${qObj.id}-${opt.letter}">Option ${opt.letter}</label>
+                  <input type="text" id="edit-opt-${qObj.id}-${opt.letter}" class="input-control" value="${escapeHtmlAttr(ot)}" oninput="updateOptionTextEdit('${qObj.id}', '${opt.letter}', this.value)">
+                </div>
+              `;
+            }).join(``)}
+          </div>
+        </div>
+      `;
+
+      return card;
+    }
+
+    /* ======================================================================
+       NON-INTERRUPTING STUDENT ANSWERING
+       ====================================================================== */
+    function selectAnswer(qId, letter) {
+      appState.answers[qId] = letter;
+
+      // Update ONLY the visual classes on this question's option labels (never touches <audio>)
+      [`A`, `B`, `C`, `D`].forEach(function (ltr) {
+        const lbl = document.getElementById(`opt-label-${qId}-${ltr}`);
+        if (lbl) {
+          if (ltr === letter) lbl.classList.add(`is-selected`);
+          else lbl.classList.remove(`is-selected`);
+        }
+      });
+
+      updateProgressStats();
+      scheduleSaveState();
+    }
+
+    function updateProgressStats() {
+      let lTotal = 0;
+      BASE_LISTENING_SETS.forEach(function (setObj) {
+        let count = 0;
+        setObj.questions.forEach(function (q) {
+          if (appState.answers[q.id]) count += 1;
+        });
+        lTotal += count;
+        const badge = document.getElementById(`l-badge-${setObj.setNumber}`);
+        const pill = document.getElementById(`l-pill-${setObj.setNumber}`);
+        if (badge) badge.textContent = `${count}/5`;
+        if (pill) {
+          if (count === 5) pill.classList.add(`is-complete`);
+          else pill.classList.remove(`is-complete`);
+        }
+      });
+
+      let rTotal = 0;
+      BASE_READING_SETS.forEach(function (setObj) {
+        let count = 0;
+        setObj.questions.forEach(function (q) {
+          if (appState.answers[q.id]) count += 1;
+        });
+        rTotal += count;
+        const badge = document.getElementById(`r-badge-${setObj.setNumber}`);
+        const pill = document.getElementById(`r-pill-${setObj.setNumber}`);
+        if (badge) badge.textContent = `${count}/5`;
+        if (pill) {
+          if (count === 5) pill.classList.add(`is-complete`);
+          else pill.classList.remove(`is-complete`);
+        }
+      });
+
+      const elL = document.getElementById(`stat-listening-count`);
+      const elR = document.getElementById(`stat-reading-count`);
+      const elT = document.getElementById(`stat-total-count`);
+      if (elL) elL.textContent = `${lTotal} / 25`;
+      if (elR) elR.textContent = `${rTotal} / 30`;
+      if (elT) elT.textContent = `${lTotal + rTotal} / 55`;
+    }
+
+    /* ======================================================================
+       INDEPENDENT 5-SET AUDIO MANAGEMENT (audio_set_1 .. audio_set_5)
+       ====================================================================== */
+    function triggerAudioUpload(setNum) {
+      const inp = document.getElementById(`audio-file-input-${setNum}`);
+      if (inp) inp.click();
+    }
+
+    function handleAudioFileUpload(setNum, inputEl) {
+      if (!inputEl || !inputEl.files || !inputEl.files[0]) return;
+      const file = inputEl.files[0];
+      const audioKey = `audio_set_${setNum}`;
+
+      // Revoke only THIS set's previous blob URL if any — never affects other sets
+      if (sessionAudioBlobs[audioKey].objectUrl) {
+        URL.revokeObjectURL(sessionAudioBlobs[audioKey].objectUrl);
+      }
+      sessionAudioBlobs[audioKey].objectUrl = URL.createObjectURL(file);
+      sessionAudioBlobs[audioKey].fileName = file.name;
+
+      // Clear cloud URL for this set so local file takes precedence
+      appState.audioUrls[audioKey] = ``;
+      const urlInput = document.getElementById(`audio-url-input-${setNum}`);
+      if (urlInput) urlInput.value = ``;
+
+      refreshSetAudioPlayer(setNum);
+      scheduleSaveState();
+    }
+
+    function applyCloudAudioUrl(setNum) {
+      const audioKey = `audio_set_${setNum}`;
+      const urlInput = document.getElementById(`audio-url-input-${setNum}`);
+      if (!urlInput) return;
+
+      const normalized = normalizeCloudAudioUrl(urlInput.value);
+      urlInput.value = normalized;
+      appState.audioUrls[audioKey] = normalized;
+
+      // Clear local file blob for THIS set only
+      if (sessionAudioBlobs[audioKey].objectUrl) {
+        URL.revokeObjectURL(sessionAudioBlobs[audioKey].objectUrl);
+        sessionAudioBlobs[audioKey].objectUrl = ``;
+        sessionAudioBlobs[audioKey].fileName = ``;
+      }
+
+      refreshSetAudioPlayer(setNum);
+      scheduleSaveState();
+    }
+
+    function clearSetAudio(setNum) {
+      const audioKey = `audio_set_${setNum}`;
+      if (sessionAudioBlobs[audioKey].objectUrl) {
+        URL.revokeObjectURL(sessionAudioBlobs[audioKey].objectUrl);
+      }
+      sessionAudioBlobs[audioKey] = { objectUrl: ``, fileName: `` };
+      appState.audioUrls[audioKey] = ``;
+
+      const urlInput = document.getElementById(`audio-url-input-${setNum}`);
+      if (urlInput) urlInput.value = ``;
+      const fileInput = document.getElementById(`audio-file-input-${setNum}`);
+      if (fileInput) fileInput.value = ``;
+
+      refreshSetAudioPlayer(setNum);
+      scheduleSaveState();
+    }
+
+    function refreshSetAudioPlayer(setNum) {
+      const audioKey = `audio_set_${setNum}`;
+      const audioEl = document.getElementById(`audio-player-${setNum}`);
+      const statusEl = document.getElementById(`l-audio-status-${setNum}`);
+      const dotEl = document.getElementById(`l-audio-dot-${setNum}`);
+      const errEl = document.getElementById(`audio-error-notice-${setNum}`);
+      if (!audioEl || !statusEl) return;
+
+      if (errEl) {
+        errEl.classList.add(`is-hidden`);
+        errEl.textContent = ``;
+      }
+
+      const blobUrl = sessionAudioBlobs[audioKey].objectUrl;
+      const cloudUrl = appState.audioUrls[audioKey];
+      const activeSrc = blobUrl || cloudUrl || ``;
+
+      if (activeSrc) {
+        if (audioEl.getAttribute(`src`) !== activeSrc) {
+          audioEl.setAttribute(`src`, activeSrc);
+          audioEl.load();
+        }
+        statusEl.textContent = blobUrl
+          ? `Audio Ready (${sessionAudioBlobs[audioKey].fileName})`
+          : `Cloud Audio Ready (Set ${setNum})`;
+        statusEl.classList.add(`is-ready`);
+        if (dotEl) dotEl.classList.remove(`is-empty`);
+      } else {
+        audioEl.removeAttribute(`src`);
+        audioEl.load();
+        statusEl.textContent = `No Audio Attached`;
+        statusEl.classList.remove(`is-ready`);
+        if (dotEl) dotEl.classList.add(`is-empty`);
+      }
+    }
+
+    function onAudioPlay(setNum) {
+      currentlyPlayingSet = setNum;
+      updateAudioMonitorBar();
+    }
+
+    function onAudioPauseOrEnd(setNum) {
+      if (currentlyPlayingSet === setNum) {
+        const audioEl = document.getElementById(`audio-player-${setNum}`);
+        if (!audioEl || audioEl.paused || audioEl.ended) {
+          currentlyPlayingSet = null;
+        }
+      }
+      updateAudioMonitorBar();
+    }
+
+    function onAudioTimeUpdate(setNum) {
+      if (currentlyPlayingSet === setNum) {
+        updateAudioMonitorBar();
+      }
+    }
+
+    function onAudioError(setNum) {
+      const audioEl = document.getElementById(`audio-player-${setNum}`);
+      const errEl = document.getElementById(`audio-error-notice-${setNum}`);
+      if (audioEl && audioEl.getAttribute(`src`) && errEl) {
+        errEl.textContent = `Unable to stream the attached audio for Set ${setNum}. Ensure the file is a valid MP3/WAV/M4A/OGG or a direct-stream URL.`;
+        errEl.classList.remove(`is-hidden`);
+      }
+    }
+
+    function updateAudioMonitorBar() {
+      const bar = document.getElementById(`audio-monitor-bar`);
+      const textEl = document.getElementById(`audio-monitor-text`);
+      if (!bar || !textEl) return;
+
+      if (currentlyPlayingSet === null) {
+        bar.classList.add(`is-hidden`);
+        return;
+      }
+      const audioEl = document.getElementById(`audio-player-${currentlyPlayingSet}`);
+      if (!audioEl || audioEl.paused || audioEl.ended) {
+        bar.classList.add(`is-hidden`);
+        return;
+      }
+      const cur = formatSeconds(Math.floor(audioEl.currentTime || 0));
+      const dur = isFinite(audioEl.duration) ? formatSeconds(Math.floor(audioEl.duration)) : `--:--`;
+      textEl.textContent = `Now Playing: Section 1 · Listening Set ${currentlyPlayingSet} (${cur} / ${dur})`;
+      bar.classList.remove(`is-hidden`);
+    }
+
+    function jumpToPlayingAudioSet() {
+      if (currentlyPlayingSet !== null) {
+        switchView(`listening`);
+        selectListeningSet(currentlyPlayingSet);
+      }
+    }
+
+    function pauseCurrentlyPlayingAudio() {
+      if (currentlyPlayingSet !== null) {
+        const audioEl = document.getElementById(`audio-player-${currentlyPlayingSet}`);
+        if (audioEl) audioEl.pause();
+      }
+    }
+
+    /* ======================================================================
+       INDEPENDENT IMAGE / CHART UPLOADS PER SET
+       ====================================================================== */
+    function triggerImageUpload(sectionType, setNum) {
+      const prefix = sectionType === `listening` ? `l` : `r`;
+      const inp = document.getElementById(`${prefix}-image-input-${setNum}`);
+      if (inp) inp.click();
+    }
+
+    function handleSetImageUpload(sectionType, setNum, inputEl) {
+      if (!inputEl || !inputEl.files || !inputEl.files[0]) return;
+      const file = inputEl.files[0];
+      const key = `${sectionType}_${setNum}`;
+
+      if (sessionImageBlobs[key].objectUrl) {
+        URL.revokeObjectURL(sessionImageBlobs[key].objectUrl);
+      }
+      sessionImageBlobs[key].objectUrl = URL.createObjectURL(file);
+      sessionImageBlobs[key].fileName = file.name;
+
+      renderSetImageDisplay(sectionType, setNum);
+    }
+
+    function clearSetImage(sectionType, setNum) {
+      const key = `${sectionType}_${setNum}`;
+      if (sessionImageBlobs[key].objectUrl) {
+        URL.revokeObjectURL(sessionImageBlobs[key].objectUrl);
+      }
+      sessionImageBlobs[key] = { objectUrl: ``, fileName: `` };
+
+      const prefix = sectionType === `listening` ? `l` : `r`;
+      const inp = document.getElementById(`${prefix}-image-input-${setNum}`);
+      if (inp) inp.value = ``;
+
+      renderSetImageDisplay(sectionType, setNum);
+    }
+
+    function renderSetImageDisplay(sectionType, setNum) {
+      const key = `${sectionType}_${setNum}`;
+      const prefix = sectionType === `listening` ? `l` : `r`;
+      const box = document.getElementById(`${prefix}-image-display-${setNum}`);
+      if (!box) return;
+
+      const imgUrl = sessionImageBlobs[key].objectUrl;
+      if (imgUrl) {
+        const caption = `${sectionType === `listening` ? `Listening` : `Reading`} Set ${setNum} — Reference Chart / Image`;
+        box.innerHTML = `
+          <div class="media-frame">
+            <span class="field-label">${caption} (Click image to enlarge)</span>
+            <img src="${imgUrl}" alt="${caption}" onclick="openLightbox('${imgUrl}', '${caption}')">
+          </div>
+        `;
+      } else {
+        const setObj = sectionType === `listening` ? BASE_LISTENING_SETS[setNum - 1] : BASE_READING_SETS[setNum - 1];
+        if (setObj && setObj.needsChartNote) {
+          box.innerHTML = `<div class="media-placeholder">Reference Chart: No image attached yet. Enable Teacher Mode to upload the chart for Set ${setNum}.</div>`;
+        } else {
+          box.innerHTML = ``;
+        }
+      }
+    }
+
+    function openLightbox(src, caption) {
+      const overlay = document.getElementById(`image-lightbox`);
+      const img = document.getElementById(`lightbox-img`);
+      const cap = document.getElementById(`lightbox-caption`);
+      if (img) img.setAttribute(`src`, src);
+      if (cap) cap.textContent = caption || `Chart / Reference Image`;
+      if (overlay) overlay.classList.remove(`is-hidden`);
+    }
+
+    function closeLightbox() {
+      const overlay = document.getElementById(`image-lightbox`);
+      if (overlay) overlay.classList.add(`is-hidden`);
+    }
+
+    /* ======================================================================
+       TRADITIONAL / SIMPLIFIED TOGGLE (Never interrupts audio or loses answers)
+       ====================================================================== */
+    function toggleScriptMode() {
+      appState.scriptMode = appState.scriptMode === `hant` ? `hans` : `hant`;
+      applyScriptModeUI();
+      scheduleSaveState();
+    }
+
+    function applyScriptModeUI() {
+      const isHant = appState.scriptMode === `hant`;
+      document.documentElement.lang = isHant ? `zh-Hant` : `zh-Hans`;
+
+      const btn = document.getElementById(`btn-script-toggle`);
+      if (btn) {
+        btn.textContent = `Traditional (繁體) / Simplified (简体): ${isHant ? `繁體` : `简体`}`;
+      }
+      const badge = document.getElementById(`active-script-badge`);
+      if (badge) {
+        badge.textContent = isHant ? `Script: Traditional (繁體)` : `Script: Simplified (简体)`;
+      }
+
+      for (let i = 1; i <= 5; i += 1) {
+        refreshTranscriptEditor(i);
+      }
+      for (let i = 1; i <= 6; i += 1) {
+        refreshReadingPassageDisplay(i);
+      }
+    }
+
+    function refreshTranscriptEditor(setNum) {
+      const editor = document.getElementById(`l-transcript-editor-${setNum}`);
+      if (editor) editor.value = getTranscriptText(setNum);
+    }
+
+    function refreshReadingPassageDisplay(setNum) {
+      const text = getPassageText(setNum);
+      const disp = document.getElementById(`r-passage-display-${setNum}`);
+      if (disp) disp.textContent = text;
+      const editor = document.getElementById(`r-passage-editor-${setNum}`);
+      if (editor) editor.value = text;
+    }
+
+    /* ======================================================================
+       SECTION & SET NAVIGATION (Preserves DOM & Audio)
+       ====================================================================== */
+    function switchView(viewName) {
+      appState.activeView = viewName;
+
+      [`listening`, `reading`, `summary`, `teacher-responses`].forEach(function (v) {
+        const viewEl = document.getElementById(`view-${v}`);
+        const tabEl = document.getElementById(`tab-${v}`);
+        if (viewEl) {
+          if (v === viewName) viewEl.classList.remove(`is-hidden`);
+          else viewEl.classList.add(`is-hidden`);
+        }
+        if (tabEl) {
+          if (v === viewName) tabEl.classList.add(`is-active`);
+          else tabEl.classList.remove(`is-active`);
+        }
+      });
+
+      if (viewName === `teacher-responses`) {
+        renderTeacherInspector();
+      }
+      updateTimerDisplay();
+    }
+
+    function selectListeningSet(setNum) {
+      if (setNum < 1 || setNum > 5) return;
+      appState.activeListeningSet = setNum;
+
+      for (let i = 1; i <= 5; i += 1) {
+        const panel = document.getElementById(`listening-set-panel-${i}`);
+        const pill = document.getElementById(`l-pill-${i}`);
+        if (panel) {
+          if (i === setNum) panel.classList.remove(`is-hidden`);
+          else panel.classList.add(`is-hidden`);
+        }
+        if (pill) {
+          if (i === setNum) pill.classList.add(`is-active`);
+          else pill.classList.remove(`is-active`);
+        }
+      }
+      scheduleSaveState();
+    }
+
+    function selectReadingSet(setNum) {
+      if (setNum < 1 || setNum > 6) return;
+      appState.activeReadingSet = setNum;
+
+      for (let i = 1; i <= 6; i += 1) {
+        const panel = document.getElementById(`reading-set-panel-${i}`);
+        const pill = document.getElementById(`r-pill-${i}`);
+        if (panel) {
+          if (i === setNum) panel.classList.remove(`is-hidden`);
+          else panel.classList.add(`is-hidden`);
+        }
+        if (pill) {
+          if (i === setNum) pill.classList.add(`is-active`);
+          else pill.classList.remove(`is-active`);
+        }
+      }
+      scheduleSaveState();
+    }
+
+    /* ======================================================================
+       DUAL TIMERS (Listening 25:00 & Reading 40:00 + ON/OFF Toggle)
+       ====================================================================== */
+    function formatSeconds(totalSec) {
+      const clamped = Math.max(0, totalSec);
+      const mins = Math.floor(clamped / 60);
+      const secs = clamped % 60;
+      const mm = mins < 10 ? `0${mins}` : `${mins}`;
+      const ss = secs < 10 ? `0${secs}` : `${secs}`;
+      return `${mm}:${ss}`;
+    }
+
+    function startTimerLoop() {
+      if (timerIntervalId) clearInterval(timerIntervalId);
+      timerIntervalId = setInterval(function () {
+        if (!appState.timersEnabled || appState.timerPaused) return;
+        if (appState.activeView === `listening` && appState.listeningRemaining > 0) {
+          appState.listeningRemaining -= 1;
+          updateTimerDisplay();
+          if (appState.listeningRemaining % 10 === 0) scheduleSaveState();
+        } else if (appState.activeView === `reading` && appState.readingRemaining > 0) {
+          appState.readingRemaining -= 1;
+          updateTimerDisplay();
+          if (appState.readingRemaining % 10 === 0) scheduleSaveState();
+        }
+      }, 1000);
+    }
+
+    function toggleTimersEnabled() {
+      appState.timersEnabled = !appState.timersEnabled;
+      updateTimerDisplay();
+      scheduleSaveState();
+    }
+
+    function toggleTimerPause() {
+      appState.timerPaused = !appState.timerPaused;
+      updateTimerDisplay();
+    }
+
+    function resetActiveTimer(btn) {
+      if (btn && btn.dataset.armed !== `true`) {
+        btn.dataset.armed = `true`;
+        btn.textContent = `Confirm Reset`;
+        setTimeout(function () {
+          if (btn.dataset.armed === `true`) {
+            btn.dataset.armed = `false`;
+            btn.textContent = `Reset Section Timer`;
+          }
+        }, 3500);
+        return;
+      }
+      if (btn) {
+        btn.dataset.armed = `false`;
+        btn.textContent = `Reset Section Timer`;
+      }
+      if (appState.activeView === `reading`) {
+        appState.readingRemaining = READING_DURATION_SEC;
+      } else {
+        appState.listeningRemaining = LISTENING_DURATION_SEC;
+      }
+      updateTimerDisplay();
+      scheduleSaveState();
+    }
+
+    function updateTimerDisplay() {
+      const enableBtn = document.getElementById(`btn-timer-enable`);
+      const pauseBtn = document.getElementById(`btn-timer-pause`);
+      const lVal = document.getElementById(`timer-display-listening`);
+      const rVal = document.getElementById(`timer-display-reading`);
+      const lUnit = document.getElementById(`timer-unit-listening`);
+      const rUnit = document.getElementById(`timer-unit-reading`);
+
+      if (enableBtn) {
+        enableBtn.textContent = appState.timersEnabled ? `Timer: ON` : `Timer: OFF`;
+        if (appState.timersEnabled) enableBtn.classList.add(`is-active`);
+        else enableBtn.classList.remove(`is-active`);
+      }
+
+      if (pauseBtn) {
+        pauseBtn.disabled = !appState.timersEnabled;
+        pauseBtn.textContent = appState.timerPaused ? `Resume Timer` : `Pause Timer`;
+      }
+
+      if (lVal && rVal) {
+        if (!appState.timersEnabled) {
+          lVal.textContent = `OFF`;
+          rVal.textContent = `OFF`;
+        } else {
+          lVal.textContent = formatSeconds(appState.listeningRemaining);
+          rVal.textContent = formatSeconds(appState.readingRemaining);
+        }
+      }
+
+      if (lUnit && rUnit) {
+        if (appState.activeView === `listening` && appState.timersEnabled) lUnit.classList.remove(`is-inactive`);
+        else lUnit.classList.add(`is-inactive`);
+
+        if (appState.activeView === `reading` && appState.timersEnabled) rUnit.classList.remove(`is-inactive`);
+        else rUnit.classList.add(`is-inactive`);
+
+        if (appState.timersEnabled && appState.listeningRemaining <= 180) lUnit.classList.add(`is-low`);
+        else lUnit.classList.remove(`is-low`);
+
+        if (appState.timersEnabled && appState.readingRemaining <= 180) rUnit.classList.add(`is-low`);
+        else rUnit.classList.remove(`is-low`);
+      }
+    }
+
+    /* ======================================================================
+       TEACHER MODE & INLINE EDITING
+       ====================================================================== */
+    function toggleTeacherMode() {
+      appState.teacherMode = !appState.teacherMode;
+      applyTeacherModeUI();
+    }
+
+    function applyTeacherModeUI() {
+      const btn = document.getElementById(`btn-teacher-toggle`);
+      const banner = document.getElementById(`teacher-banner`);
+      const tabInspector = document.getElementById(`tab-teacher-responses`);
+
+      if (btn) {
+        btn.textContent = appState.teacherMode ? `Teacher Mode: On` : `Teacher Mode: Off`;
+        if (appState.teacherMode) btn.classList.add(`is-active`);
+        else btn.classList.remove(`is-active`);
+      }
+      if (banner) {
+        if (appState.teacherMode) banner.classList.remove(`is-hidden`);
+        else banner.classList.add(`is-hidden`);
+      }
+      if (tabInspector) {
+        if (appState.teacherMode) tabInspector.classList.remove(`is-hidden`);
+        else {
+          tabInspector.classList.add(`is-hidden`);
+          if (appState.activeView === `teacher-responses`) {
+            switchView(`listening`);
+          }
+        }
+      }
+
+      const teacherBlocks = document.querySelectorAll(`.teacher-only`);
+      teacherBlocks.forEach(function (el) {
+        if (appState.teacherMode) el.classList.remove(`is-hidden`);
+        else el.classList.add(`is-hidden`);
+      });
+    }
+
+    function updateTranscriptEdit(setNum, val) {
+      const key = `L${setNum}`;
+      if (!appState.teacherEdits.transcripts[key]) appState.teacherEdits.transcripts[key] = {};
+      appState.teacherEdits.transcripts[key][appState.scriptMode] = val;
+      scheduleSaveState();
+    }
+
+    function updatePassageEdit(setNum, val) {
+      const key = `R${setNum}`;
+      if (!appState.teacherEdits.passages[key]) appState.teacherEdits.passages[key] = {};
+      appState.teacherEdits.passages[key][appState.scriptMode] = val;
+      const disp = document.getElementById(`r-passage-display-${setNum}`);
+      if (disp) disp.textContent = val;
+      scheduleSaveState();
+    }
+
+    function updateQuestionPromptEdit(qId, val) {
+      if (!appState.teacherEdits.questions[qId]) appState.teacherEdits.questions[qId] = {};
+      appState.teacherEdits.questions[qId].prompt = val;
+
+      const allSets = BASE_LISTENING_SETS.concat(BASE_READING_SETS);
+      let numLabel = ``;
+      allSets.forEach(function (s) {
+        s.questions.forEach(function (q) {
+          if (q.id === qId) numLabel = q.numLabel;
+        });
+      });
+      const promptEl = document.getElementById(`q-prompt-${qId}`);
+      if (promptEl) promptEl.textContent = `${numLabel} ${val}`;
+      scheduleSaveState();
+    }
+
+    function updateOptionTextEdit(qId, letter, val) {
+      if (!appState.teacherEdits.questions[qId]) appState.teacherEdits.questions[qId] = {};
+      if (!appState.teacherEdits.questions[qId].options) appState.teacherEdits.questions[qId].options = {};
+      appState.teacherEdits.questions[qId].options[letter] = val;
+
+      const optTextEl = document.getElementById(`opt-text-${qId}-${letter}`);
+      if (optTextEl) optTextEl.textContent = val;
+      scheduleSaveState();
+    }
+
+    function resetTeacherEdits(btn) {
+      if (btn && btn.dataset.armed !== `true`) {
+        btn.dataset.armed = `true`;
+        btn.textContent = `Click Again to Restore Original Text`;
+        setTimeout(function () {
+          if (btn.dataset.armed === `true`) {
+            btn.dataset.armed = `false`;
+            btn.textContent = `Restore Original Exam Text`;
+          }
+        }, 4000);
+        return;
+      }
+      if (btn) {
+        btn.dataset.armed = `false`;
+        btn.textContent = `Restore Original Exam Text`;
+      }
+      appState.teacherEdits = { passages: {}, transcripts: {}, questions: {} };
+
+      // Refresh UI text without destroying audio players
+      for (let i = 1; i <= 5; i += 1) {
+        refreshTranscriptEditor(i);
+      }
+      for (let i = 1; i <= 6; i += 1) {
+        refreshReadingPassageDisplay(i);
+      }
+      BASE_LISTENING_SETS.concat(BASE_READING_SETS).forEach(function (setObj) {
+        setObj.questions.forEach(function (qObj) {
+          const promptEl = document.getElementById(`q-prompt-${qObj.id}`);
+          if (promptEl) promptEl.textContent = `${qObj.numLabel} ${qObj.prompt}`;
+          const editPromptEl = document.getElementById(`edit-prompt-${qObj.id}`);
+          if (editPromptEl) editPromptEl.value = qObj.prompt;
+
+          qObj.options.forEach(function (opt) {
+            const optTextEl = document.getElementById(`opt-text-${qObj.id}-${opt.letter}`);
+            if (optTextEl) optTextEl.textContent = opt.text;
+            const editOptEl = document.getElementById(`edit-opt-${qObj.id}-${opt.letter}`);
+            if (editOptEl) editOptEl.value = opt.text;
+          });
+        });
+      });
+
+      scheduleSaveState();
+    }
+
+    /* ======================================================================
+       STUDENT INPUTS, SUBMISSION & EMAIL TRANSMISSION
+       ====================================================================== */
+    function updateStudentInfo() {
+      const nameEl = document.getElementById(`student-name-input`);
+      const idEl = document.getElementById(`student-id-input`);
+      if (nameEl) appState.studentName = nameEl.value;
+      if (idEl) appState.studentId = idEl.value;
+      scheduleSaveState();
+    }
+
+    function resetStudentResponses(btn) {
+      if (btn && btn.dataset.armed !== `true`) {
+        btn.dataset.armed = `true`;
+        btn.textContent = `Confirm Clear All`;
+        setTimeout(function () {
+          if (btn.dataset.armed === `true`) {
+            btn.dataset.armed = `false`;
+            btn.textContent = `Clear All Answers`;
+          }
+        }, 3500);
+        return;
+      }
+      if (btn) {
+        btn.dataset.armed = `false`;
+        btn.textContent = `Clear All Answers`;
+      }
+      appState.answers = {};
+      const radios = document.querySelectorAll(`input[type="radio"]`);
+      radios.forEach(function (r) { r.checked = false; });
+      const selectedLabels = document.querySelectorAll(`.option-item.is-selected`);
+      selectedLabels.forEach(function (lbl) { lbl.classList.remove(`is-selected`); });
+      updateProgressStats();
+      scheduleSaveState();
+    }
+
+    function countAnswered() {
+      let lCount = 0;
+      let rCount = 0;
+      BASE_LISTENING_SETS.forEach(function (s) {
+        s.questions.forEach(function (q) { if (appState.answers[q.id]) lCount += 1; });
+      });
+      BASE_READING_SETS.forEach(function (s) {
+        s.questions.forEach(function (q) { if (appState.answers[q.id]) rCount += 1; });
+      });
+      return { listening: lCount, reading: rCount, total: lCount + rCount };
+    }
+
+    function handleSubmitExam(btn) {
+      const feedback = document.getElementById(`submit-inline-feedback`);
+      const nameVal = (appState.studentName || ``).trim();
+      const idVal = (appState.studentId || ``).trim();
+
+      if (!nameVal) {
+        if (feedback) {
+          feedback.className = `inline-notice is-error`;
+          feedback.textContent = `Please enter your Student Name before submitting the exam.`;
+        }
+        const nameInp = document.getElementById(`student-name-input`);
+        if (nameInp) nameInp.focus();
+        return;
+      }
+
+      const counts = countAnswered();
+      if (counts.total < 55 && btn && btn.dataset.armed !== `true`) {
+        btn.dataset.armed = `true`;
+        btn.textContent = `Confirm Submit (${counts.total}/55 Answered)`;
+        if (feedback) {
+          feedback.className = `inline-notice is-warning`;
+          feedback.textContent = `You have answered ${counts.total} of 55 questions (${55 - counts.total} unanswered). Click the Submit button again to confirm submission.`;
+        }
+        setTimeout(function () {
+          if (btn.dataset.armed === `true`) {
+            btn.dataset.armed = `false`;
+            btn.textContent = `Submit Exam`;
+          }
+        }, 6000);
+        return;
+      }
+
+      if (btn) {
+        btn.dataset.armed = `false`;
+        btn.textContent = `Submit Exam`;
+      }
+      if (feedback) {
+        feedback.className = `inline-notice is-hidden`;
+        feedback.textContent = ``;
+      }
+
+      const submissionRecord = {
+        timestamp: new Date().toISOString(),
+        studentName: nameVal,
+        studentId: idVal || `N/A`,
+        scriptMode: appState.scriptMode,
+        listeningAnswered: counts.listening,
+        readingAnswered: counts.reading,
+        listeningTimeUsedSec: LISTENING_DURATION_SEC - appState.listeningRemaining,
+        readingTimeUsedSec: READING_DURATION_SEC - appState.readingRemaining,
+        answers: Object.assign({}, appState.answers)
+      };
+
+      appState.submissions.unshift(submissionRecord);
+      if (appState.submissions.length > 25) appState.submissions = appState.submissions.slice(0, 25);
+      saveAppStateNow();
+
+      const tabSummary = document.getElementById(`tab-summary`);
+      if (tabSummary) tabSummary.classList.remove(`is-hidden`);
+
+      renderSubmissionSummary(submissionRecord);
+      switchView(`summary`);
+    }
+
+    function buildFormattedEmailReport(record) {
+      const lines = [];
+      lines.push(`AP Chinese Practice Exam — Student Response Report`);
+      lines.push(`==================================================`);
+      lines.push(`Recipient: letsenjoymandarin@gmail.com`);
+      lines.push(`Student Name: ${record.studentName}`);
+      lines.push(`Student ID: ${record.studentId}`);
+      lines.push(`Submitted At: ${new Date(record.timestamp).toLocaleString()}`);
+      lines.push(`Character Script: ${record.scriptMode === `hant` ? `Traditional (繁體)` : `Simplified (简体)`}`);
+      lines.push(`Listening Answered: ${record.listeningAnswered} / 25`);
+      lines.push(`Reading Answered: ${record.readingAnswered} / 30`);
+      lines.push(`Total Answered: ${record.listeningAnswered + record.readingAnswered} / 55`);
+      lines.push(``);
+      lines.push(`--- SECTION 1: LISTENING COMPREHENSION ---`);
+      BASE_LISTENING_SETS.forEach(function (setObj) {
+        const setParts = setObj.questions.map(function (q) {
+          const ans = record.answers[q.id] || `-`;
+          return `Q${q.numLabel.replace(`.`, ``)}=${ans}`;
+        });
+        lines.push(`Set ${setObj.setNumber}: ${setParts.join(`, `)}`);
+      });
+      lines.push(``);
+      lines.push(`--- SECTION 2: READING COMPREHENSION ---`);
+      BASE_READING_SETS.forEach(function (setObj) {
+        const setParts = setObj.questions.map(function (q) {
+          const ans = record.answers[q.id] || `-`;
+          return `Q${q.numLabel.replace(`.`, ``)}=${ans}`;
+        });
+        lines.push(`Set ${setObj.setNumber}: ${setParts.join(`, `)}`);
+      });
+      return lines.join(`\n`);
+    }
+
+    function renderSubmissionSummary(record) {
+      const grid = document.getElementById(`summary-metrics-grid`);
+      if (grid) {
+        grid.innerHTML = `
+          <div class="figure-card">
+            <div class="figure-label">Student</div>
+            <div class="figure-value" style="font-size: 1.25rem;">${escapeHtml(record.studentName)}</div>
+            <div class="figure-delta">ID: ${escapeHtml(record.studentId)}</div>
+          </div>
+          <div class="figure-card">
+            <div class="figure-label">Listening Completed</div>
+            <div class="figure-value">${record.listeningAnswered} / 25</div>
+            <div class="figure-delta">Time Elapsed: ${formatSeconds(record.listeningTimeUsedSec)}</div>
+          </div>
+          <div class="figure-card">
+            <div class="figure-label">Reading Completed</div>
+            <div class="figure-value">${record.readingAnswered} / 30</div>
+            <div class="figure-delta">Time Elapsed: ${formatSeconds(record.readingTimeUsedSec)}</div>
+          </div>
+          <div class="figure-card">
+            <div class="figure-label">Total Recorded</div>
+            <div class="figure-value">${record.listeningAnswered + record.readingAnswered} / 55</div>
+            <div class="figure-delta">Saved Locally</div>
+          </div>
+        `;
+      }
+
+      const reportBody = buildFormattedEmailReport(record);
+      const previewEl = document.getElementById(`email-report-preview`);
+      if (previewEl) previewEl.value = reportBody;
+
+      const mailtoLink = document.getElementById(`mailto-dispatch-link`);
+      if (mailtoLink) {
+        const subject = encodeURIComponent(`AP Chinese Practice Exam Submission — ${record.studentName} (${record.studentId})`);
+        const body = encodeURIComponent(reportBody);
+        mailtoLink.setAttribute(`href`, `mailto:letsenjoymandarin@gmail.com?subject=${subject}&body=${body}`);
+      }
+
+      const tbody = document.getElementById(`summary-answers-tbody`);
+      if (tbody) {
+        let rowsHtml = ``;
+        BASE_LISTENING_SETS.forEach(function (s) {
+          s.questions.forEach(function (q) {
+            const ans = record.answers[q.id] || `Unanswered`;
+            rowsHtml += `
+              <tr>
+                <td>Section 1: Listening</td>
+                <td>Set ${s.setNumber}</td>
+                <td class="num">${escapeHtml(q.numLabel)}</td>
+                <td class="num"><strong>${escapeHtml(ans)}</strong></td>
+              </tr>
+            `;
+          });
+        });
+        BASE_READING_SETS.forEach(function (s) {
+          s.questions.forEach(function (q) {
+            const ans = record.answers[q.id] || `Unanswered`;
+            rowsHtml += `
+              <tr>
+                <td>Section 2: Reading</td>
+                <td>Set ${s.setNumber}</td>
+                <td class="num">${escapeHtml(q.numLabel)}</td>
+                <td class="num"><strong>${escapeHtml(ans)}</strong></td>
+              </tr>
+            `;
+          });
+        });
+        tbody.innerHTML = rowsHtml;
+      }
+    }
+
+    function copyEmailReport() {
+      const previewEl = document.getElementById(`email-report-preview`);
+      const feedback = document.getElementById(`copy-report-feedback`);
+      if (!previewEl) return;
+      const text = previewEl.value;
+      if (navigator.clipboard && typeof navigator.clipboard.writeText === `function`) {
+        navigator.clipboard.writeText(text).then(function () {
+          if (feedback) {
+            feedback.className = `inline-notice is-success`;
+            feedback.textContent = `Formatted email report copied to clipboard! Paste into an email to letsenjoymandarin@gmail.com.`;
+          }
+        }).catch(function () {
+          previewEl.select();
+          if (feedback) {
+            feedback.className = `inline-notice is-warning`;
+            feedback.textContent = `Select and copy the text from the box below (Ctrl+C / Cmd+C) to send to letsenjoymandarin@gmail.com.`;
+          }
+        });
+      } else {
+        previewEl.select();
+        if (feedback) {
+          feedback.className = `inline-notice is-warning`;
+          feedback.textContent = `Report text selected. Press Ctrl+C / Cmd+C to copy and email to letsenjoymandarin@gmail.com.`;
+        }
+      }
+    }
+
+    function downloadReportTxt() {
+      const latest = appState.submissions[0] || {
+        timestamp: new Date().toISOString(),
+        studentName: appState.studentName || `Student`,
+        studentId: appState.studentId || `N/A`,
+        scriptMode: appState.scriptMode,
+        listeningAnswered: countAnswered().listening,
+        readingAnswered: countAnswered().reading,
+        answers: appState.answers
+      };
+      const content = buildFormattedEmailReport(latest);
+      const safeName = (latest.studentName || `student`).replace(/[^a-zA-Z0-9_-]/g, `_`);
+      if (window.notebookAppApi && typeof window.notebookAppApi.triggerFileDownload === `function`) {
+        window.notebookAppApi.triggerFileDownload({
+          content: content,
+          contentType: `text/plain`,
+          encoding: `UTF-8`,
+          filename: `AP_Chinese_Report_${safeName}.txt`
+        });
+      }
+    }
+
+    function downloadReportCsv() {
+      const latest = appState.submissions[0] || {
+        timestamp: new Date().toISOString(),
+        studentName: appState.studentName || `Student`,
+        studentId: appState.studentId || `N/A`,
+        answers: appState.answers
+      };
+      const rows = [`Student Name,Student ID,Section,Set,Question Number,Response`];
+      BASE_LISTENING_SETS.forEach(function (s) {
+        s.questions.forEach(function (q) {
+          const ans = latest.answers[q.id] || ``;
+          rows.push(`"${csvSafe(latest.studentName)}","${csvSafe(latest.studentId)}","Listening","Set ${s.setNumber}","${q.numLabel}","${ans}"`);
+        });
+      });
+      BASE_READING_SETS.forEach(function (s) {
+        s.questions.forEach(function (q) {
+          const ans = latest.answers[q.id] || ``;
+          rows.push(`"${csvSafe(latest.studentName)}","${csvSafe(latest.studentId)}","Reading","Set ${s.setNumber}","${q.numLabel}","${ans}"`);
+        });
+      });
+      const safeName = (latest.studentName || `student`).replace(/[^a-zA-Z0-9_-]/g, `_`);
+      if (window.notebookAppApi && typeof window.notebookAppApi.triggerFileDownload === `function`) {
+        window.notebookAppApi.triggerFileDownload({
+          content: rows.join(`\n`),
+          contentType: `text/csv`,
+          encoding: `UTF-8`,
+          filename: `AP_Chinese_Responses_${safeName}.csv`
+        });
+      }
+    }
+
+    /* ======================================================================
+       TEACHER RESPONSE INSPECTOR
+       ====================================================================== */
+    function renderTeacherInspector() {
+      const container = document.getElementById(`teacher-inspector-content`);
+      if (!container) return;
+
+      const counts = countAnswered();
+      let html = `
+        <div class="inline-notice" style="margin-bottom: var(--space-md);">
+          Current Active Session — Student: <strong>${escapeHtml(appState.studentName || `(Not entered)`)}</strong> |
+          ID: <strong>${escapeHtml(appState.studentId || `(Not entered)`)}</strong> |
+          Answered: <strong>${counts.total} / 55</strong>
+        </div>
+      `;
+
+      if (!appState.submissions || appState.submissions.length === 0) {
+        html += `<div class="media-placeholder">No submitted exam records saved yet. Once a student clicks "Submit Exam", their complete response record will appear here.</div>`;
+      } else {
+        html += `
+          <div class="charter-table-wrap">
+            <table class="charter-table">
+              <thead>
+                <tr>
+                  <th>Submitted At</th>
+                  <th>Student Name</th>
+                  <th>ID</th>
+                  <th>Listening</th>
+                  <th>Reading</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${appState.submissions.map(function (sub, idx) {
+                  return `
+                    <tr>
+                      <td>${escapeHtml(new Date(sub.timestamp).toLocaleString())}</td>
+                      <td><strong>${escapeHtml(sub.studentName)}</strong></td>
+                      <td>${escapeHtml(sub.studentId)}</td>
+                      <td class="num">${sub.listeningAnswered}/25</td>
+                      <td class="num">${sub.readingAnswered}/30</td>
+                      <td>
+                        <button type="button" class="btn btn-secondary btn-sm" onclick="inspectSubmission(${idx})">
+                          View Report
+                        </button>
+                      </td>
+                    </tr>
+                  `;
+                }).join(``)}
+              </tbody>
+            </table>
+          </div>
+        `;
+      }
+      container.innerHTML = html;
+    }
+
+    function inspectSubmission(idx) {
+      const sub = appState.submissions[idx];
+      if (!sub) return;
+      const tabSummary = document.getElementById(`tab-summary`);
+      if (tabSummary) tabSummary.classList.remove(`is-hidden`);
+      renderSubmissionSummary(sub);
+      switchView(`summary`);
+    }
+
+    /* ======================================================================
+       SAFE STRING ESCAPING UTILITIES
+       ====================================================================== */
+    function escapeHtml(str) {
+      return String(str || ``)
+        .replace(/&/g, `&amp;`)
+        .replace(/</g, `&lt;`)
+        .replace(/>/g, `&gt;`)
+        .replace(/"/g, `&quot;`)
+        .replace(/'/g, `&#39;`);
+    }
+
+    function escapeHtmlAttr(str) {
+      return escapeHtml(str);
+    }
+
+    function csvSafe(str) {
+      return String(str || ``).replace(/"/g, `""`);
+    }
+
+    /* ======================================================================
+       BOOT SEQUENCE
+       ====================================================================== */
+    async function initExamApp() {
+      await loadInitialState();
+
+      const nameEl = document.getElementById(`student-name-input`);
+      const idEl = document.getElementById(`student-id-input`);
+      if (nameEl) nameEl.value = appState.studentName || ``;
+      if (idEl) idEl.value = appState.studentId || ``;
+
+      buildListeningPanels();
+      buildReadingPanels();
+
+      applyScriptModeUI();
+      applyTeacherModeUI();
+      selectListeningSet(appState.activeListeningSet || 1);
+      selectReadingSet(appState.activeReadingSet || 1);
+      updateProgressStats();
+      updateTimerDisplay();
+
+      if (appState.submissions && appState.submissions.length > 0) {
+        const tabSummary = document.getElementById(`tab-summary`);
+        if (tabSummary) tabSummary.classList.remove(`is-hidden`);
+        renderSubmissionSummary(appState.submissions[0]);
+      }
+
+      startTimerLoop();
+
+      if (window.notebookAppApi && typeof window.notebookAppApi.notifyAppReady === `function`) {
+        window.notebookAppApi.notifyAppReady();
+      }
+    }
+
+    document.addEventListener(`DOMContentLoaded`, initExamApp);
+  </script>
+</body>
+</html>
